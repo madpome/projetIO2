@@ -14,7 +14,7 @@ function connexion($login,$mdp){
 		$_SESSION["mail"]=$_ligne["mail"];
 		mysql_close();
 		return true;
-	}else{*
+	}else{
 		mysql_close();
 		return false;
 	}
