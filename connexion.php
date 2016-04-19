@@ -12,11 +12,12 @@ function connexion($login,$mdp){
 	if ($ligne && $mdp==password_verify($mdp,$ligne["pwd"])){
 		$_SESSION["login"]=$login;
 		$_SESSION["mail"]=$_ligne["mail"];
+		mysql_close();
 		return true;
-	}else{
+	}else{*
+		mysql_close();
 		return false;
 	}
-	mysql_close();
 }
 //Met les attributs utiles de l'utilisateur dans la session
 function getatt(){
