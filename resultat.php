@@ -18,9 +18,9 @@
 			$données[1] = htmlspecialchars($_POST["date"]);
 			$attr[1] = "date";
 		}
-		if (isset($_POST["id"])) {
-			$données[2] = htmlspecialchars($_POST["id"]);
-			$attr[2] = "article_id";
+		if (isset($_POST["title"])) {
+			$données[2] = htmlspecialchars($_POST["title"]);
+			$attr[2] = "title";
 		}
 		
 		$server="pams.script.univ-paris-diderot.fr";
