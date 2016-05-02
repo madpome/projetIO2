@@ -5,6 +5,13 @@
 </head>
 <body>
 	<div>
+		<form action="resultat.php" method="post">
+			<label> Auteur : </label><input type="text" name="auteur">
+			<label> Date : </label><input type="text" name="date"> 
+			<label> Titre : </label><input type="text" name="title"> 
+		</form>
+	</div>
+	<div>
 		<?php
 		include_once("recherche.php");
 		$données;
