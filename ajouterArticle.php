@@ -12,8 +12,10 @@
 		} else {
 			$result = mysql_query($req, $connexion);
 			if (!$result) {
+				mysql_close();
 				return "Impossible d'accéder à votre requête.";
 			} else {
+				mysql_close();
 				return "Article posté!";
 			}
 		}
