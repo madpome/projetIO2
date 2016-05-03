@@ -7,7 +7,7 @@
 		$connexion=mysql_connect($server,$user,'r1M)qu0K');
 		mysql_select_db($base,$connexion);
 		$req = "INSERT INTO article user, title, content, date VALUES \"$_SESSION[\"user\"]\", \"$title\", \"$content\", NOW()";
-		if (!cherche($titre, "Titre", $connexion) {
+		if (!cherche($title, "title", $connexion) {
 			return "Ce titre existe déjà";
 		} else {
 			$result = mysql_query($req, $connexion);
