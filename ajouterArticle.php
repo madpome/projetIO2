@@ -10,7 +10,7 @@
 		if (!cherche($titre, "Titre", $connexion) {
 			return "Ce titre existe déjà";
 		} else {
-			$result = mysql_query($connexion, $req);
+			$result = mysql_query($req, $connexion);
 			if (!$result) {
 				return "Impossible d'accéder à votre requête.";
 			} else {
