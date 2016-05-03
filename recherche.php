@@ -1,7 +1,7 @@
 <?php
 	//Retourne la liste des articles dont les attributs ($attrReq) correspondent aux données en paramètres
 	function chercherS ($donnéesReq, $attrReq, $con) {
-		$req = "SELECT * FROM Articles WHERE \"$attrReq\" = \"$donnéesReq\"";
+		$req = "SELECT * FROM article WHERE \"$attrReq\" = \"$donnéesReq\"";
 		$result = mysql_query($con, $req);
 		$ret;
 		$idx = 0;
@@ -16,7 +16,7 @@
 	//renvoie vrai si les deux entrées sont des tableaux de même taille
 	function check ($données, $attr) {
 		$ans = is_array($données) && is_array($attr);
-		$ans = $ans && count($données) == count($attr);
+		$ans = $ans && (count($données) == count($attr));
 		return ans;
 	}
 	
