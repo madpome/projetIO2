@@ -54,7 +54,7 @@
 				$base="phiear22";
 				$connexion=mysql_connect($server,$user,'r1M)qu0K');
 				$value = chercherS($_POST["title"], "title", $connexion);
-				echo("<input height=\"0\" width=\"0\" name=\"page\" value=$value>");
+				echo("<input height=\"0\" width=\"0\" name=\"article\" value=$value>");
 		?>
 				<input type="submit" value="Voir l'article">
 			</form>
