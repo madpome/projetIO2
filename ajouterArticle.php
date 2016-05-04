@@ -1,4 +1,3 @@
-<DOCTYPE! hmtl>
 <?php
 	function ajouterArticle ($title, $content) {
 		$req = "INSERT INTO article user, title, content, date VALUES $_SESSION[\"user\"], \"$title\", \"$content\", NOW()";
@@ -18,6 +17,7 @@
 		}
 	}
 ?>
+<DOCTYPE! hmtl>
 <head>
 	<title> Vérification </title>
 	<meta charset="UTF-8">
@@ -26,6 +26,8 @@
 	<div>
 		<?php
 			include_once("recherche.php");
+			$_POST["title"] = htmlspecialchars($_POST["title"]);
+			$_POST["content"] = htmlspecialchars($_POST["content"]);
 			$result = ajouterArticle($_POST["title"], $_POST["content"]);
 			echo($result);
 			if ($result == "Ce titre existe déjà.") {
