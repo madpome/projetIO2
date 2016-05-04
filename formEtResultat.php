@@ -8,7 +8,8 @@
 		<form action="resultat.php" method="post">
 			<label> Auteur : </label><input type="text" name="auteur">
 			<label> Date : </label><input type="text" name="date"> 
-			<label> Titre : </label><input type="text" name="title"> 
+			<label> Titre : </label><input type="text" name="title">
+			<input type="submit" value="Lancer la recherche">
 		</form>
 	</div>
 	<div>
