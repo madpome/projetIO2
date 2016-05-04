@@ -43,8 +43,12 @@
 			echo("Aucun résultat trouvé");
 		} else {
 			foreach($liste as $v) {
-				//ligne à finir pour renvoyer sur les articles affichés
-				echo("<form action=\"index.php\" method=\"get\"> <label id=\"\" class=\"\"> $liste[\"$title\"] $liste[\"$user\"] </label> <input type=\"submit\" value=$v>");
+				?>
+				echo("<form action=\"index.php\" method=\"get\">
+					<label id=\"\" class=\"\"> $liste[\"$title\"] $liste[\"$user\"] </label>
+					<input type=\"text\" name=\"article\" value=$v>
+					<input type=\"submit\" value=\"Lire l'article\">
+				</form>");
 			}
 		}
 	}
