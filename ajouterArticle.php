@@ -1,4 +1,6 @@
 <?php
+	include_once("recherche.php");
+	//Ajouter un article et renvoie le message correspondant au résultat de la fonction
 	function ajouterArticle ($title, $content) {
 		$req = "INSERT INTO article user, title, content, date VALUES $_SESSION[\"user\"], \"$title\", \"$content\", NOW()";
 		$con = mysql_connect($serv, $user);
@@ -24,42 +26,45 @@
 </head>
 <body>
 	<div>
+		
 		<?php
-			include_once("recherche.php");
-			$_POST["title"] = htmlspecialchars($_POST["title"]);
-			$_POST["content"] = htmlspecialchars($_POST["content"]);
-			$result = ajouterArticle($_POST["title"], $_POST["content"]);
-			echo($result);
-			if ($result == "Ce titre existe déjà.") {
+		$_POST["title"] = htmlspecialchars($_POST["title"]);
+		$_POST["content"] = htmlspecialchars($_POST["content"]);
+		$result = ajouterArticle($_POST["title"], $_POST["content"]);
+		echo($result);
+		
+		if ($result == "Ce titre existe déjà.") {
 		?>
-				<form method="post" action="ajouterArticleForm">
-					<label> Retourner vers l'écriture d'article </label>
+			<form method="post" action="ajouterArticleForm">
+				<label> Retourner vers l'écriture d'article </label>
 					<?php
-						echo("<input height=\"0\" width=\"0\" name=\"title\" value=$_POST[\"title\"]>");
-						echo("<input height=\"0\" width=\"0\" name=\"content\" value=$_POST[\"content\"]>");
+					echo("<input height=\"0\" width=\"0\" name=\"title\" value=$_POST[\"title\"]>");
+					echo("<input height=\"0\" width=\"0\" name=\"content\" value=$_POST[\"content\"]>");
 					?>
-					<input type="submit" value="retour">
-				</form>
-		<?php
-			} else if ($result == "Impossible d'accéder à votre requête.") {
-		?>
-				<a href="accueil.php"> Retourner à l'accueil </a>
-		<?php
-			} else {
-		?>
-			<form action="index.php" method="get">
-		<?php
-				$server="pams.script.univ-paris-diderot.fr";
-				$user="phiear22";
-				$base="phiear22";
-				$connexion=mysql_connect($server,$user,'r1M)qu0K');
-				$value = chercherS($_POST["title"], "title", $connexion);
-				echo("<input height=\"0\" width=\"0\" name=\"article\" value=$value>");
-		?>
-				<input type="submit" value="Voir l'article">
+				<input type="submit" value="retour">
 			</form>
 		<?php
-			}
+		
+		} else if ($result == "Impossible d'accéder à votre requête.") {
+		?>
+			<a href="accueil.php"> Retourner à l'accueil </a>
+		<?php
+		
+		} else {
+		?>
+		<form action="index.php" method="get">
+			<?php
+			$server="pams.script.univ-paris-diderot.fr";
+			$user="phiear22";
+			$base="phiear22";
+			$connexion=mysql_connect($server,$user,'r1M)qu0K');
+			$value = chercherS($_POST["title"], "title", $connexion);
+			echo("<input height=\"0\" width=\"0\" name=\"article\" value=$value>");
+			?>
+			<input type="submit" value="Voir l'article">
+		</form>
+		<?php
+		}
 		?>
 	</div>
 </body>
