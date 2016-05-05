@@ -5,7 +5,7 @@
 		echo("<div> $article[\"content\"] </div>");
 	}
 	
-	//Permet l'affichage partiel d'un article dans la recherche et la page d'accueil
+	//Permet l'affichage partiel d'un article dans la page d'accueil
 	function affichage_partiel($article) {
 		echo("<div><label> $article[\"title\"] </label> <label> par $article[\"user\"] </label>");
 		echo("<img src= ");
