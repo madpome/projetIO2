@@ -43,10 +43,9 @@
 			echo("Aucun résultat trouvé");
 		} else {
 			foreach($liste as $v) {
-				?>
 				echo("<form action=\"index.php\" method=\"get\">
 					<label id=\"\" class=\"\"> $liste[\"$title\"] $liste[\"$user\"] </label>
-					<input type=\"text\" name=\"article\" value=$v>
+					<input type=\"text\" name=\"article\" height=\"0\" width=\"0\" value=$v>
 					<input type=\"submit\" value=\"Lire l'article\">
 				</form>");
 			}
