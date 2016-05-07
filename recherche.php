@@ -1,5 +1,6 @@
 <?php
 	//Retourne la liste des articles dont les attributs ($attrReq) correspondent aux données en paramètres
+	//On ferme aussi la connexion $con avec la base de données à la fin de la recherche
 	function chercherS ($donnéesReq, $attrReq, $con) {
 		$req = "SELECT * FROM article WHERE \"$attrReq\" = \"$donnéesReq\"";
 		$result = mysql_query($con, $req);
@@ -13,7 +14,7 @@
 		return $ret;
 	}
 	
-	//renvoie vrai si les deux entrées sont des tableaux de même taille
+	//Renvoie vrai si les deux entrées sont des tableaux de même taille
 	function check ($données, $attr) {
 		$ans = is_array($données) && is_array($attr);
 		$ans = $ans && (count($données) == count($attr));
@@ -45,7 +46,7 @@
 			foreach($liste as $v) {
 				echo("<form action=\"index.php\" method=\"get\">
 					<label id=\"\" class=\"\"> $liste[\"$title\"] $liste[\"$user\"] </label>
-					<input type=\"text\" name=\"article\" height=\"0\" width=\"0\" value=$v>
+					<input type=\"hidden\" name=\"article\" value=$v>
 					<input type=\"submit\" value=\"Lire l'article\">
 				</form>");
 			}
