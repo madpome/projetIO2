@@ -1,14 +1,3 @@
-<?php
-	include_once("affichage.php");
-	include_once("recherche.php");
-?>
-<DOCTYPE! html>
-<head>
-	<title> Accueil </title>
-	<meta charset="UTF-8">
-<head>
-
-<body>
 	<div>
 		<?php
 		
@@ -51,5 +40,3 @@
 			<input type="submit" value="Voir plus">
 		</form>
 	</div>
-</body>
-</html>
