@@ -1,5 +1,4 @@
 <?php
-	include_once("recherche.php");
 	
 	//Ajouter un article et renvoie le message correspondant au résultat de la fonction
 	function ajouterArticle ($title, $content, $category) {
@@ -16,14 +15,8 @@
 			}
 		}
 	}
+	function machin(){
 ?>
-
-<DOCTYPE! hmtl>
-<head>
-	<title> Vérification </title>
-	<meta charset="UTF-8">
-</head>
-<body>
 	<div>
 		<?php
 		$_POST["title"] = htmlspecialchars($_POST["title"]);
@@ -73,5 +66,6 @@
 		}
 		?>
 	</div>
-</body>
-</html>
+<?php 
+}
+?>
