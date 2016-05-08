@@ -1,3 +1,6 @@
+<?php
+	function encoreunefonction(){
+?>
 	<div>
 		<?php
 		if($_SESSION["connect"]) {
@@ -44,3 +47,6 @@
 		}
 		?>
 	</div>
+<?php
+}
+?>
