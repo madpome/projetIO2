@@ -1,3 +1,6 @@
+<?php
+	function jsapais(){
+?>
 	<div>
 		<form action="resultat.php" method="post">
 			<label> Auteur : </label><input type="text" name="auteur">
@@ -44,3 +47,6 @@
 		afficherListeArticle($données, $attr, $connexion);
 		?>
 	</div>
+<?php
+}
+?>
