@@ -1,13 +1,3 @@
-<?php
-	include_once("recherche.php");
-?>
-
-<DOCTYPE! html>
-<head>
-	<meta charset="UTF-8">
-	<title> Résultat de la recherche </title>
-</head>
-<body>
 	<div>
 		<form action="resultat.php" method="post">
 			<label> Auteur : </label><input type="text" name="auteur">
@@ -54,5 +44,3 @@
 		afficherListeArticle($données, $attr, $connexion);
 		?>
 	</div>
-</body>
-</html>
