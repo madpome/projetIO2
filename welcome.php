@@ -1,3 +1,6 @@
+<?php
+	function welcomejesaispas(){
+?>
 	<div>
 		<?php
 		
@@ -40,3 +43,6 @@
 			<input type="submit" value="Voir plus">
 		</form>
 	</div>
+<?php
+}
+?>
