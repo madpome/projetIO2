@@ -1,9 +1,3 @@
-<DOCTYPE! hmtl>
-<head>
-	<title> Ajouter Un Article </title>
-	<meta charset="UTF-8">
-</head>
-<body>
 	<div>
 		<?php
 		if($_SESSION["connect"]) {
@@ -50,5 +44,3 @@
 		}
 		?>
 	</div>
-</body>
-</html>
