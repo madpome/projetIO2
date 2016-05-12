@@ -1,8 +1,12 @@
 <?php
-	//Retourne la liste des articles dont les attributs ($attrReq) correspondent aux données en paramètres
-	//On ferme aussi la connexion $con avec la base de données à la fin de la recherche
-	function chercherS ($donnéesReq, $attrReq, $con) {
-		$req = "SELECT * FROM article WHERE ".$attrReq."=".$donnéesReq;
+	//Renvoie la liste des articles correspondants au(x) critère(s) contenu(s) dans $attrReq
+	function chercher($donneesReq, $attrReq, $con) {
+		if(is_array($donneesReq)) {
+			$req = traiter($donneesReq, $attrReq);
+		} else {
+			$req = "SELECT * FROM article WHERE $donneesReq = $attrReq";
+		}
+		$req = "SELECT * FROM article WHERE \"$attrReq\" = \"$donnéesReq\"";
 		$result = mysql_query($con, $req);
 		$ret;
 		$idx = 0;
@@ -14,26 +18,17 @@
 		return $ret;
 	}
 	
-	//Renvoie vrai si les deux entrées sont des tableaux de même taille
-	function check ($données, $attr) {
-		$ans = is_array($données) && is_array($attr);
-		$ans = $ans && (count($données) == count($attr));
-		return ans;
-	}
-	
-	//Permet de taitrer les entrées $données et $attr pour la requête slq avant les passer à chercher()
-	function chercher ($données, $attr, $connexion) {
-		if (check($données, $attr)) {
-			foreach($données as $v) {
-				$donnéesReq = $donnéesReq.$v.",";
-			}
-			foreach($attr as $c => $v) {
-				$attrReq = $attrReq.$v.","
-			}
-			return chercherS(trim($donnéesReq,","), trim($attrReq,","), $connexion);
-		} else {
-			return chercherS($données, $attr, $connexion);
+	//Permet de taitrer les entrées $données et $attr pour la requête slq
+	function traiter ($donneesReq, $attrReq) {
+		foreach($donneesReq as $v) {
+			$donnees = $données.$v.",";
 		}
+		foreach($attrReq as $v) {
+			$attr = $attr.$v.",";
+		}
+		$donnees = trim($donnéesReq,",");
+		$attr = trim($attrReq,",");
+		return "SELECT * FROM article WHERE $donnees = $attr";
 	}
 	
 	//Permet l'affichage de la liste des articles donnée par la fonction de recherche
@@ -44,15 +39,16 @@
 			echo("Aucun résultat trouvé");
 		} else {
 			foreach($liste as $v) {
-				echo '<form action="index.php" method="get">'.$liste["$title"].' Auteur :'.$liste["$user"].'
-				<input type="hidden" name="article" value=<?php echo $v ?>>
-				<input type="submit" value="Lire l\'article">
-				</form>';
+				echo("<form action=\"index.php\" method=\"get\">
+					<label id=\"\" class=\"\"> $liste[\"$title\"] $liste[\"$user\"] </label>
+					<input type=\"hidden\" name=\"article\" value=$v>
+					<input type=\"submit\" value=\"Lire l'article\">
+				</form>");
 			}
 		}
 	}
 	
-	//Renvoie la liste des catégories que la base de données contient
+	//Renvoie la liste des catégories dans la base de données
 	function listeCategory ($connexion) {
 		$req = "SELECT * FROM category";
 		while ($result != false) {
