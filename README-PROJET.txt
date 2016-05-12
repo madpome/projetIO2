@@ -26,3 +26,13 @@ ATTRIBUTS :article_id //id de l'article clef primaire unique
 
 TABLE	  :category
 ATTRIBUTS :name	//nom de la catégorie
+
+
+ATTRIBUTS DISPONIBLES DANS LA SESSION SI CONNECTE:
+
+	$_SESSION["connect"]
+	$_SESSION["user"]
+	$_SESSION["mail"]
+	$_SESSION["lastname"]
+	$_SESSION["firstname"]
+	$_SESSION["rank"]
