@@ -19,7 +19,7 @@ Site crée par:
 	<tr>
 		<td>Maël</td>
 		<td>DEBOIS</td>
-		<td>maildemael@machin.com</td>
+		<td>mael.debs@gmail.com</td>
 	</tr>
 	<tr>
 		<a href=#thetop>Revenir au début</a>
