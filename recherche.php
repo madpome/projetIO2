@@ -2,7 +2,7 @@
 	//Retourne la liste des articles dont les attributs ($attrReq) correspondent aux données en paramètres
 	//On ferme aussi la connexion $con avec la base de données à la fin de la recherche
 	function chercherS ($donnéesReq, $attrReq, $con) {
-		$req = "SELECT * FROM article WHERE \"$attrReq\" = \"$donnéesReq\"";
+		$req = "SELECT * FROM article WHERE ".$attrReq."=".$donnéesReq;
 		$result = mysql_query($con, $req);
 		$ret;
 		$idx = 0;
@@ -44,11 +44,10 @@
 			echo("Aucun résultat trouvé");
 		} else {
 			foreach($liste as $v) {
-				echo("<form action=\"index.php\" method=\"get\">
-					<label id=\"\" class=\"\"> $liste[\"$title\"] $liste[\"$user\"] </label>
-					<input type=\"hidden\" name=\"article\" value=$v>
-					<input type=\"submit\" value=\"Lire l'article\">
-				</form>");
+				echo '<form action="index.php" method="get">'.$liste["$title"].' Auteur :'.$liste["$user"].'
+				<input type="hidden" name="article" value=<?php echo $v ?>>
+				<input type="submit" value="Lire l\'article">
+				</form>';
 			}
 		}
 	}
