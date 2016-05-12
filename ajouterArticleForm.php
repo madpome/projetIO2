@@ -11,7 +11,7 @@
 		if($_SESSION["connect"]) {
 		?>
 		
-			<form method="post" action="ajouterArticle.php">
+			<form method="post" action="">
 				<?php
 				if(isset($_POST["title"]{
 					$value = $_POST["title"];
@@ -19,7 +19,7 @@
 					$value = "Votre titre";
 				}
 				?>
-				<label> Titre : <label> <input type=text name=title size=50 value=<?php echo("$value");?> maxlength=200 required> <label> (200 caractères max) </label>
+				Titre :<input type=text name=title size=50 value="<?php echo"$value"; ?>" maxlength=200 required>(200 caractères max)
 
 				<?php
 				if(isset($_POST["content"])){
@@ -28,8 +28,8 @@
 					$value = "Votre article";
 				}
 				?>
-				<textarea name=\"content\" rows=\"50\" cols=\"50\" value=$value maxlength=\"20000\" required> Ecrivez votre article ici </textarea> <label> (20.000 caractères max) </label>
-				
+				<textarea name="content" rows="50" cols="50" maxlength="20000" required><?php echo $value; ?> </textarea>(20.000 caractères max)
+		
 				<select name="category">
 					<?php
 					foreach ($category as $v) {
@@ -50,7 +50,7 @@
 		} else {
 		?>
 		
-			<label> Vous devez être connecté pour poster un article </label>
+			Vous devez être connecté pour poster un article
 			<a href=""> Se connecter </a>
 			
 		<?php
