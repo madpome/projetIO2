@@ -5,7 +5,7 @@ TABLE     :users
 ATTRIBUTS :firstname //prenom
 	   lastname //nom de famille
            mail     //mail
-	   pwd      // mot de passe hachÈ avec sel
+	   pwd      // mot de passe hach√© avec sel
 	   id       // clef primaire unique identifiant auto_increment
            rank     // rang de l'utilisateur (0=lambda 1=admin)
            user     // nom d'utilisateur
@@ -17,7 +17,12 @@ TABLE	  :article
 
 ATTRIBUTS :article_id //id de l'article clef primaire unique
            user       // nom de l'utilisateur
-           date       // date de crÈation de l'article, ‡ fixer a chaque crÈation d'articles avec NOW()
+           date       // date de cr√©ation de l'article, √† fixer a chaque cr√©ation d'articles avec NOW()
            content    // contenu du texte (20 000 char)
            title      // titre de l'article
            (comment)  // commentaires eventuels si on implante l'extension (2000 char)
+
+
+
+TABLE	  :category
+ATTRIBUTS :name	//nom de la cat√©gorie
