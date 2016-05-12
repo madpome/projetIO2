@@ -1,0 +1,149 @@
+html{
+    height:100%;
+}
+body{
+    min-width:auto;
+    padding-bottom:150px;
+    background-color:#C9C9B6;
+    height:100%;
+    min-width:1200px;
+    min-height:100%;
+    margin:0 0 0 0;
+    padding:0 0 0 0;
+}
+header{
+    position:relative;
+    top:0;
+    left:0;
+    right:0;
+    background:#3E0C04;
+    height:150px;
+    display:block;
+    border:1px;
+    border-color:black;
+    border-style:solid;
+    margin-left:auto;
+    margin-right:auto;
+}
+#blabla{
+    text-align:justify;
+    word-wrap:break-word;
+    z-index:0;
+    position:relative;
+    min-width:auto;
+    width:800px;
+    margin-left:auto;
+    margin-right:auto;
+    background:#F1F0E5;
+    min-height:800px;
+    height:100%;
+    display:block;
+    border:1px;
+    border-color:black;
+    border-style:solid;
+}
+#grosdiv{
+    margin:0;
+    padding:0;
+}
+footer{
+    width:100%;
+    position:relative;
+    left:0;
+    right:0;
+    float:right;
+    bottom:0;
+    background:	#1E2A39;
+    height:150px;
+    display:block;
+    border:1px;
+    border-color:black;
+    border-style:solid;
+    text-align:center;
+}
+#lespieds{
+    border:solid;
+}
+table{
+    margin-left:auto;
+    margin-right:auto;
+}
+#menuhori{
+    left:-50px;
+    z-index:1;
+    position:relative;
+    top:133px;
+    display:block;
+    margin:0 auto;
+    width:200px;
+}
+#menuhori>ul{
+    width:300px;
+}
+#menuhori ul{
+    background:darkgreen;
+    display:block;
+    margin:0;
+    padding:0;
+    list-style-type:none;
+    text-align:center;
+    border-style:solid;
+    border:1px;
+}
+#menuhori li{
+    width:100px;
+    background:darkgreen;
+    float:left;
+    padding:0;
+    margin:auto;
+}
+#menuhori ul li ul{
+    display:none;
+}
+#menuhori ul li:hover ul{
+    display:block;
+
+}
+#menuhori ul li:hover{
+    color:blue;
+}
+#menuhori ul li:hover ul li{
+    float:none;
+    color:black;
+
+}
+#menuhori li ul{
+    position:absolute;
+
+}
+#menuvert{
+    background:#284927;
+    float:left;
+    z-index:3;
+    position:relative;
+    width:200px;
+    height:500px;
+    display:block;
+    border-style:solid;
+    border-width:1px;
+    margin:0;
+    padding:0;
+}
+#menuvert ul{
+    text-align:center;
+    position:relative;
+    width:200px;
+    list-style-type:none;
+    padding:0;
+}
+#connexion{
+    float:right;
+}
+#tothetop{
+    bottom:0;
+    right:0;
+    height:35px;
+    width:35px;
+    display:block;
+    position:fixed;
+}
