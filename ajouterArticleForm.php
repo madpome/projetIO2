@@ -1,17 +1,14 @@
 <?php
-	$server="pams.script.univ-paris-diderot.fr";
-	$user="phiear22";
-	$base="phiear22";
-	$connexion=mysql_connect($server,$user,'r1M)qu0K');
-	$category = listeCategory ($connexion);
-	function encoreunefonction(){
-?>
-	<div>
-		<?php
+	function formaddarticle(){
+		$server="pams.script.univ-paris-diderot.fr";
+		$user="phiear22";
+		$base="phiear22";
+		$connexion=mysql_connect($server,$user,'r1M)qu0K');
+		$category = listeCategory($connexion);
 		if($_SESSION["connect"]) {
-		?>
-		
-			<form method="post" action="">
+?>
+		<div>
+			<form method="post" action="ajouterArticle.php">
 				<?php
 				if(isset($_POST["title"]{
 					$value = $_POST["title"];
@@ -19,7 +16,7 @@
 					$value = "Votre titre";
 				}
 				?>
-				Titre :<input type=text name=title size=50 value="<?php echo"$value"; ?>" maxlength=200 required>(200 caractères max)
+				<label> Titre : <label> <input type="text" name="title" size=50 value="<?php echo $value; ?>" maxlength=200 required> <label> (200 caractères max) </label>
 
 				<?php
 				if(isset($_POST["content"])){
@@ -28,8 +25,8 @@
 					$value = "Votre article";
 				}
 				?>
-				<textarea name="content" rows="50" cols="50" maxlength="20000" required><?php echo $value; ?> </textarea>(20.000 caractères max)
-		
+				<textarea name="content" rows="50" cols="50" maxlength="20000" required> <?php echo $value; ?> </textarea> <label> (20.000 caractères max) </label>
+				
 				<select name="category">
 					<?php
 					foreach ($category as $v) {
@@ -42,8 +39,9 @@
 					?>
 				</select>
 				
-				<input type="submit" value="Envoyer">
+				<input type="submit" value="Poster cet article">
 			</form>
+		</div>
 			
 			
 		<?php
@@ -51,12 +49,11 @@
 		?>
 		
 			Vous devez être connecté pour poster un article
-			<a href=""> Se connecter </a>
+			<a href="index.php?page=inscription"> Pas encore inscrit ? Cliquez ici </a>
 			
 		<?php
 		}
 		?>
-	</div>
 <?php
 }
 ?>
