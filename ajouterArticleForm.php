@@ -1,4 +1,9 @@
 <?php
+	$server="pams.script.univ-paris-diderot.fr";
+	$user="phiear22";
+	$base="phiear22";
+	$connexion=mysql_connect($server,$user,'r1M)qu0K');
+	$category = listeCategory ($connexion);
 	function encoreunefonction(){
 ?>
 	<div>
@@ -26,10 +31,15 @@
 				<textarea name=\"content\" rows=\"50\" cols=\"50\" value=$value maxlength=\"20000\" required> Ecrivez votre article ici </textarea> <label> (20.000 caractères max) </label>
 				
 				<select name="category">
-					<option value="cinema" <?php if($_POST["category"] == "cinéma"){echo("selected");?>> Cinéma </option>
-					<option value="litterature" <?php } else if {$_POST["category"] == "littérature") {echo("selected");?>> Littérature </option>
-					<option value="autre" <?php } else {echo("selected");}?>> Autre </option>
-					<!-- Insérer ici de nouvelles catégories-->
+					<?php
+					foreach ($category as $v) {
+						echo("<option value=$v");
+						if($_POST["category"] == "$v")
+							echo("selected");
+						}
+						echo("> $v </option>");
+					}
+					?>
 				</select>
 				
 				<input type="submit" value="Envoyer">
