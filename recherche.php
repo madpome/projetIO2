@@ -52,4 +52,15 @@
 			}
 		}
 	}
+	
+	//Renvoie la liste des catégories que la base de données contient
+	function listeCategory ($connexion) {
+		$req = "SELECT * FROM category";
+		while ($result != false) {
+			$ret[$idx] = mysql_fetch_assoc($result);
+			$idx++;
+		}
+		mysql_close();
+		return $ret;
+	}
 ?>
