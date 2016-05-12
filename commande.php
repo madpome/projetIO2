@@ -8,7 +8,7 @@ function supprarticle($article_id){
 	mysql_select_db($base,$connexion);
     $req='DELETE FROM article WHERE article_id='.$id;
     $result=mysql_query($req,$connexion);
-    echo "L'article a bien été supprimé"
+    echo "L'article a bien été supprimé";
 }
 //Suppression d'utilisateur
 function supprutilisateur($user_id){
@@ -21,7 +21,7 @@ function supprutilisateur($user_id){
     $result=mysql_query($req1,$connexion);
     $ligne=mysql_fetch_assoc($result);
     if($ligne["rank"]==1){
-        echo "Vous ne pouvez pas supprimer un administrateur."
+        echo "Vous ne pouvez pas supprimer un administrateur.";
     }else{
         $req2='DELETE FROM users WHERE id='.$user_id;
         $result=mysql_query($req2,$connexion);
@@ -93,8 +93,8 @@ function choixsuppruser(){
         }
         echo "</select>";
         mysql_close();
-        echo '<input type="submit value="Supprimer cet utilisateur">'
-        echo '</form>'
+        echo '<input type="submit value="Supprimer cet utilisateur">';
+        echo '</form>';
     }
 }
 ?>
