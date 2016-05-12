@@ -25,6 +25,7 @@ if($_SESSION["connect"]){
 }else{
 	formcon();
 }
+accueil();
 	menuhori();
 ?>
 </header>
@@ -57,7 +58,7 @@ if($_SESSION["connect"]){
 				sauvegarde();
 				break;			
 			case "article":
-				affiche_article($_SESSION["article"]);
+				affiche_article($_GET["article"]);
 				break;
 			case "profil":
 				break;
