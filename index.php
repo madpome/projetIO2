@@ -5,19 +5,32 @@
 	include_once("sauvegarde.php");
 	include_once("page.php");
 	isconnected();
+	/*$_SESSION["connect"]=true;
+	$_SESSION["firstname"]="Philippe";
+	$_SESSION["lastname"]="EAR";
+	$_SESSION["mail"]="philippe@boss.fr";*/
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<title>Mon site d'IO2</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<header>
+<header id="thetop">
 <?php
-	//menu();
+if($_SESSION["connect"]){
+	formuncon();
+}else{
+	formcon();
+}
+	menuhori();
 ?>
 </header>
+<div id="grosdiv">
+	<?php menuvert(); ?>
+<div id="blabla">
 <?php	
 	if(isset($_GET["page"])){
 		switch($_GET["page"]){
@@ -46,6 +59,8 @@
 			case "article":
 				affiche_article($_SESSION["article"]);
 				break;
+			case "profil":
+				break;
 			default:
 				welcome();
 				break;		
@@ -54,8 +69,13 @@
 		welcome();
 	}
 ?>
-</body>
+</div>
+<div id="remonte">
+	<a href=#thetop><img id="tothetop" src="arrowup.png" alt="REMONTER"></a>
+</div>
 <footer>
-<?php //footer() ?>
+<?php footer(); ?>
 </footer>
+</div>
+</body>
 </html>

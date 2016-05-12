@@ -12,12 +12,11 @@ function connexion($login,$mdp){
 	if ($ligne && $mdp==password_verify($mdp,$ligne["pwd"])){
 		$_SESSION["login"]=$login;
 		$_SESSION["mail"]=$_ligne["mail"];
-		mysql_close();
 		return true;
 	}else{
-		mysql_close();
 		return false;
 	}
+	mysql_close();
 }
 //Met les attributs utiles de l'utilisateur dans la session
 function getatt(){
@@ -51,7 +50,7 @@ function deconnexion(){
 function formcon(){
 ?>
 	<div id="connexion">
-	<form method="POST" action="index.php&page=connexion">
+	<form method="POST" action="index.php?&page=connexion">
 		<input type="text" placeholder="Nom d'utilisateur" name="login" required>
 		<input type="password" placeholder="Mot de passe" name="pwd" required>
 		<input type="submit" value="Me connecter">
@@ -60,23 +59,18 @@ function formcon(){
 <?php
 }
 //Formulaire qui s'affiche pour se déconnecter
-function fromuncon(){
+function formuncon(){
 ?>
-	<div id="modcon">
+	<div id="connexion">
 	<form method="GET" action="index.php">
 		<input type="hidden" name="page" value="deconnexion">
-		<input type="input" value="Deconnexion">
-	</form>
-	<form method="GET" action="index.php">
-		<input type="hidden" name="page" value="inscription">
-		<input type="submit" value="Modifier mon profil">
+		<input type="submit" value="Deconnexion">
 	</form>
 	</div>
 <?php 
 }
-//Si la connexion echou, renvoi formcon
+//Si la connexion echou
 function nonvalide(){
 	echo "L'utilisateur/mot de passe renseigné n'existent pas/ne correspondent pas";
-	formcon();
 }
-	
+?>	
