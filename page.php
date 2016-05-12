@@ -46,7 +46,7 @@ Site crée par:
 				<?php
 					if($_SESSION["connect"]){
 				?>
-					<a href="index.php&page=profil">Mon profil</a>
+					<a href="index.php?page=profil">Mon profil</a>
 				<?php
 					}
 				?>
@@ -55,7 +55,7 @@ Site crée par:
 				<?php
 					if($_SESSION["connect"]){
 				?>
-					<a href="index.php&page=ecrire">Ecrire un article</a>
+					<a href="index.php?page=ecrire">Ecrire un article</a>
 				<?php
 					}
 				?>
