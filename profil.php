@@ -11,7 +11,7 @@
                 Nom:
             </td>
             <td>
-                <?php echo $_SESSION["lastname"]; ?>
+                <?php echo htmlentities($_SESSION["lastname"]); ?>
             </td>
         </tr>
         <tr>
@@ -19,7 +19,7 @@
                 Prénom:
             </td>
             <td>
-                <?php echo $_SESSION["firstname"]; ?>
+                <?php echo htmlentities($_SESSION["firstname"]); ?>
             </td>
         </tr>
         <tr>
@@ -27,7 +27,7 @@
                 Adresse mail:
             </td>
             <td>
-                <?php echo $_SESSION["mail"]; ?>
+                <?php echo htmlentities($_SESSION["mail"]); ?>
             </td>
         </tr>
         <tr>
