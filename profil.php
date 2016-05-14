@@ -30,6 +30,20 @@
                 <?php echo $_SESSION["mail"]; ?>
             </td>
         </tr>
+        <tr>
+            <td>
+                Votre liste d'article :
+            </td>
+			<td>
+<?php			    
+			$server="pams.script.univ-paris-diderot.fr";
+			$user="phiear22";
+			$base="phiear22";
+			$connexion=mysql_connect($server,$user,'r1M)qu0K');
+			afficherListeArticle ($_SESSION["user"], "user", $connexion);
+?>
+			</td>
+        </tr>
     </table>
     <a href="index.php?page=inscription">Modifier mes données personnelles</a><br>
 <?php
