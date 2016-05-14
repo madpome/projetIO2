@@ -76,46 +76,13 @@ Site crée par:
 		<div id="menuhori">
 		<ul>
 			<li>
-				Articles
-				<ul>
-					<li>
-						Politiques
-					</li>
-					<li>
-						Sports
-					</li>
-					<li>
-						Chamboudi
-					</li>
-				</ul>
+				<a href="index.php">Derniers articles écrit</a>
 			</li>
 			<li>
-				Recherche
-				<ul>
-					<li>
-						Sous1
-					</li>
-					<li>
-						Sous2
-					</li>
-					<li>
-						Sous3
-					</li>
-				</ul>
+				<a href="index.php?page=recherche">Recherche un article</a>
 			</li>
 			<li>
-				JSP
-				<ul>
-					<li>
-						Sous1
-					</li>
-					<li>
-						Sous2
-					</li>
-					<li>
-						Sous3
-					</li>
-				</ul>
+				<a href="index.php?page=category">Les articles par catégories</a>
 			</li>
 		</ul>
 	</div>
