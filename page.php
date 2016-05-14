@@ -6,6 +6,7 @@
 			echo 'BONJOUR INCONNU, ';
 		}
 	}
+	//Créer le footer
 	function footer(){
 ?>
 Site crée par:
@@ -28,6 +29,7 @@ Site crée par:
 
 <?php
 	}
+	//Créer le menu verticale à gauche
 	function menuvert(){
 ?>
 	<div id="menuvert">
@@ -48,6 +50,10 @@ Site crée par:
 				?>
 					<a href="index.php?page=profil">Mon profil</a>
 				<?php
+					}else{
+				?>
+						<a href="index.php?page=inscription">M'inscrire</a>
+				<?php
 					}
 				?>
 			</li>
@@ -64,6 +70,7 @@ Site crée par:
 	</div>
 <?php
 	}
+	//Créer le menu horizontal de navigation
 	function menuhori(){
 ?>
 		<div id="menuhori">
@@ -111,6 +118,16 @@ Site crée par:
 				</ul>
 			</li>
 		</ul>
+	</div>
+<?php
+	}
+	//Creer un bouton de retour a l'accueil
+	function accueil(){
+?>
+	<div id="retouraccueil">
+		<form type="GET" action="index.php">
+			<input type="submit" value="Retour à l'accueil">
+		</form>
 	</div>
 <?php
 	}
