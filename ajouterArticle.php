@@ -1,12 +1,11 @@
 <?php
-	
 	//Ajouter un article et renvoie le message correspondant au résultat de la fonction
 	function ajouterArticle ($title, $content, $category) {
 		$server="localhost";
 		$user="phiear22";
-		$req = 'INSERT INTO articles (user,user_id, title, content, date, category) VALUES '.mysql_real_escape_string($_SESSION["user"]).','.mysql_real_escape_string($_SESSION["user_id"]).','.mysql_real_escape_string($title).','.mysql_real_escape_string($content).', NOW(),'.mysql_real_escape_string($category);
+		$req = 'INSERT INTO articles (user,user_id, title, content, date, category) VALUES '.@mysql_real_escape_string($_SESSION["user"]).','.@mysql_real_escape_string($_SESSION["user_id"]).','.@mysql_real_escape_string($title).','.@mysql_real_escape_string($content).', NOW(),'.@mysql_real_escape_string($category);
 		$con = mysql_connect($serv, $user);
-		if (!chercher($titre, "Titre")){
+		if (!chercher($titre, "title"){
 			return FALSE;
 		} else {
 			$result = mysql_query($con, $req);
@@ -21,9 +20,6 @@
 ?>
 	<div>
 		<?php
-		//Inutile, le on escape uneiquement lors de l'affichage
-		$_POST["title"] = htmlspecialchars($_POST["title"]);
-		$_POST["content"] = htmlspecialchars($_POST["content"]);
 		$result = ajouterArticle($_POST["title"], $_POST["content"], $_POST["category"]);
 		
 		if (!$result){
