@@ -4,7 +4,7 @@
 		if(is_array($donneesReq)) {
 			$req = traiter($donneesReq, $attrReq);
 		} else {
-			$req = "SELECT * FROM article WHERE $donneesReq = $attrReq";
+			$req = 'SELECT * FROM article WHERE '.$donneesReq.'="'.$attrReq.'"';
 		}
 		$req = "SELECT * FROM article WHERE \"$attrReq\" = \"$donnéesReq\"";
 		$result = mysql_query($con, $req);
@@ -28,7 +28,7 @@
 		}
 		$donnees = trim($donnéesReq,",");
 		$attr = trim($attrReq,",");
-		return "SELECT * FROM article WHERE $donnees = $attr";
+		return "SELECT * FROM article WHERE ".$donnees.'= "'.$attr.'"';
 	}
 	
 	//Permet l'affichage de la liste des articles donnée par la fonction de recherche
