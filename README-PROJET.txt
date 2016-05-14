@@ -36,3 +36,4 @@ ATTRIBUTS DISPONIBLES DANS LA SESSION SI CONNECTE:
 	$_SESSION["lastname"]
 	$_SESSION["firstname"]
 	$_SESSION["rank"]
+	$_SESSION["user_id"]
