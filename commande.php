@@ -44,7 +44,7 @@ function admincommande(){
         	<td><a href="index.php?page=supprarticle">Supprimer un article</a></td>
         </tr>
         <tr>
-        	<td><a href="index.php?page=choixajoutcategory">Ajouter une catégorie</a></td>
+        	<td><a href="index.php?page=formajoutcategory">Ajouter une catégorie</a></td>
         </tr>
         <tr>
         	<td><a href="index.php?page=choixsupprcategory">Supprimer une catégorie</a></td>
