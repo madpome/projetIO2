@@ -20,8 +20,8 @@
 	
 	//Permet l'affichage de la liste des articles donnée par la fonction de recherche
 	//En argument, les données pour la recherche
-	function afficherListeArticle ($données, $attr, $connexion) {
-		$liste = chercher($données, $attr, $connexion);
+	function afficherListeArticle ($données, $attr) {
+		$liste = chercher($données, $attr);
 		if (is_null($liste) {
 			echo("Aucun résultat trouvé");
 		} else {
