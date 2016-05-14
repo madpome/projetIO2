@@ -8,6 +8,12 @@
 	include_once("ajouterArticleForm.php");
 	include_once("commandeseffets.php");
 	include_once("commande.php");
+	include_once("formEtResultat.php");
+	include_once("recherche.php");
+	include_once("affichage.php");
+	include_once("ajouterArticle.php");
+	include_once("verification.php");
+	include_once("welcome.php");
 	isconnected();
 ?>
 <!DOCTYPE html>
@@ -67,15 +73,6 @@ accueil();
 			case "ecrire":
 				formajoutarticle();
 				break;
-			case "rechercher":
-				formrechercherarticle();
-				break;
-			case "resultat":
-				resultatrecherche();
-				break;
-			case "category":
-				affichagerecherchecategorie();
-				break;
 			case "supprmembre":
 				choixsuppruser();
 				break;
@@ -94,6 +91,15 @@ accueil();
 			case "ajout":
 				ajout();
 				break;
+			case "rechercher":		
+-				formrechercherarticle();		
+-				break;		
+-			case "resultat":		
+-				resultatrecherche();		
+-				break;		
+-			case "category":		
+-				affichagerecherchecategorie();		
+-				break;
 			default:
 				welcome();
 				break;		
