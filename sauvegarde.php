@@ -14,7 +14,7 @@ function sauvegarde(){
 		}
 		$lab["pwd"]=hachage($lab["pwd"]);
 		if($lab["pwd"]!=false){	
-			$req='INSERT INTO users (firstname,lastname,user,pwd,mail) 	VALUES ("'.$lab["firstname"].'","'.$lab["lastname"].'","'.$lab["user"].'","'.$lab["pwd"].'","'.$lab["mail"].'")';
+			$req='INSERT INTO users (firstname,lastname,user,pwd,mail) 	VALUES ("'.mysql_real_escape_string($lab["firstname"]).'","'.mysql_real_escape_string($lab["lastname"]).'","'.mysql_real_escape_string($lab["user"]).'","'.mysql_real_escape_string($lab["pwd"]).'","'.mysql_real_escape_string($lab["mail"]).'")';
 			mysql_query($req) or die("Une erreur est survenue lors de l'enregistrement:".mysql_error());
 			echo "Vous avez bien été inscrit";
 		}else{
@@ -36,7 +36,7 @@ function update(){
 	if(verificationupdate()){
 		$pwd=$_POST["pwd"];
 		$pwd=hachage($pwd);
-		$req='UPDATE users SET mail="'.$_POST["mail"].'", firstname="'.$_POST["firstname"].'", lastname="'.$_POST["lastname"].'",pwd="'.$pwd.'" WHERE user="'.$_SESSION["user"].'"';
+		$req='UPDATE users SET mail="'.mysql_real_escape_string($_POST["mail"]).'", firstname="'.mysql_real_escape_string($_POST["firstname"]).'", lastname="'.mysql_real_escape_string($_POST["lastname"]).'",pwd="'.mysql_real_escape_string($pwd).'" WHERE user="'.mysql_real_escape_string($_SESSION["user"]).'"';
 		$result=mysql_query($req,$connexion);
 		getatt();
 		echo "Vos données ont bien été modifiées";
@@ -44,3 +44,4 @@ function update(){
 		echo "Vos mots de passes ne correspondent pas ou l'email est déjà utilisé";
 	}
 }
+?>
