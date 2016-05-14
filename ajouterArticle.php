@@ -31,7 +31,7 @@
 			<!-- Les infos à retourner vers le formulaire d'ajout d'article - éviter la réécriture si possible. -->
 			<input type="hidden" name="title" value= <?php echo $_POST["title"]; ?>>
 			<input type="hidden" name="content" value=<?php echo $_POST["content"];?>>
-			<input type="hidden"  name="category" value=<?php echo $_POST[\"category"];?>>
+			<input type="hidden"  name="category" value=<?php echo $_POST["category"];?>>
 			<input type="submit" value="Retourner vers l'écriture d'article">
 		</form>
 		<a href="index.php"> Retourner à l'accueil </a>	
