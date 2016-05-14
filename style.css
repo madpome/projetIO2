@@ -26,7 +26,8 @@ header{
     margin-right:auto;
 }
 #blabla{
-    text-align:justify;
+    
+    text-align:center;
     word-wrap:break-word;
     z-index:0;
     position:relative;
@@ -45,6 +46,12 @@ header{
 #grosdiv{
     margin:0;
     padding:0;
+}
+#tableprofil{
+    text-align: left;
+}
+#profil{
+    text-align:center;
 }
 footer{
     width:100%;
@@ -69,13 +76,13 @@ table{
     margin-right:auto;
 }
 #menuhori{
-    left:-50px;
+    left:-0px;
     z-index:1;
     position:relative;
     top:133px;
     display:block;
     margin:0 auto;
-    width:200px;
+    width:300px;
 }
 #menuhori>ul{
     width:300px;
@@ -138,6 +145,9 @@ table{
 }
 #connexion{
     float:right;
+}
+#retouraccueil{
+    float:left;
 }
 #tothetop{
     bottom:0;
