@@ -63,7 +63,7 @@ function deconnexion(){
 function formcon(){
 ?>
 	<div id="connexion">
-	<form method="POST" action="index.php?&page=connexion">
+	<form method="POST" action="index.php?page=connexion">
 		<input type="text" placeholder="Nom d'utilisateur" name="login" required>
 		<input type="password" placeholder="Mot de passe" name="pwd" required>
 		<input type="submit" value="Me connecter">
