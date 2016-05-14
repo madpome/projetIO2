@@ -5,15 +5,12 @@
 	include_once("sauvegarde.php");
 	include_once("page.php");
 	include_once("profil.php");
-	include_once("ajouterArticleForm.php");
-	include_once("commandeseffets.php");
+	include_once("article.php");
 	include_once("commande.php");
 	include_once("formEtResultat.php");
 	include_once("recherche.php");
 	include_once("affichage.php");
-	include_once("ajouterArticle.php");
 	include_once("verification.php");
-	include_once("welcome.php");
 	isconnected();
 ?>
 <!DOCTYPE html>
@@ -88,10 +85,10 @@ accueil();
 			case "suppression":
 				suppression();
 				break;
-			case "ajout":
-				ajout();
+			case "ajoutArticle":
+				ajoutArticle();
 				break;
-			case "rechercher":		
+			/*case "rechercher":		
 -				formrechercherarticle();		
 -				break;		
 -			case "resultat":		
@@ -99,7 +96,7 @@ accueil();
 -				break;		
 -			case "category":		
 -				affichagerecherchecategorie();		
--				break;
+-				break;*/
 			default:
 				welcome();
 				break;		
