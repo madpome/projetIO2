@@ -6,7 +6,7 @@ function supprarticle($article_id){
 	$base="phiear22";
 	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
 	mysql_select_db($base,$connexion);
-    $req='DELETE FROM article WHERE article_id='.mysql_real_escape_string($article_id);
+    $req='DELETE FROM article WHERE article_id='.@mysql_real_escape_string($article_id);
     $result=mysql_query($req,$connexion);
     echo "L'article a bien été supprimé";
 }
@@ -17,13 +17,13 @@ function supprutilisateur($user_id){
 	$base="phiear22";
 	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
 	mysql_select_db($base,$connexion);
-    $req1='SELECT rank FROM users WHERE id='.mysql_real_escape_string($user_id);
+    $req1='SELECT rank FROM users WHERE id='.@mysql_real_escape_string($user_id);
     $result=mysql_query($req1,$connexion);
     $ligne=mysql_fetch_assoc($result);
     if($ligne["rank"]==1){
         echo "Vous ne pouvez pas supprimer un administrateur.";
     }else{
-        $req2='DELETE FROM users WHERE id='.mysql_real_escape_string($user_id);
+        $req2='DELETE FROM users WHERE id='.@mysql_real_escape_string($user_id);
         $result=mysql_query($req2,$connexion);
         echo "L'utilisateur a bien été supprimé";
     }
@@ -61,7 +61,7 @@ function choixsupprarticle(){
 	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
 	mysql_select_db($base,$connexion);
     if($_SESSION["rank"]==0){
-        $req='SELECT article_id,title,user FROM article WHERE user='.mysql_real_escape_string($_SESSION["user"]);
+        $req='SELECT article_id,title,user FROM article WHERE user='.@mysql_real_escape_string($_SESSION["user"]);
     }else{
         $req='SELECT title,user,article_id FROM article';
     }
@@ -133,7 +133,7 @@ function supprcate($cat_id){
 	$base="phiear22";
 	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
 	mysql_select_db($base,$connexion);
-    $req='DELETE FROM category WHERE cat_id='.mysql_real_escape_string($cat_id);
+    $req='DELETE FROM category WHERE cat_id='.@mysql_real_escape_string($cat_id);
     $result=mysql_query($req,$connexion) or die(mysql_error());
     echo "La catégorie a bien été supprimé";
 }
@@ -151,10 +151,10 @@ function ajoutcate($name) {
 	$user="phiear22";
 	$base="phiear22";
 	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
-	$req = 'SELECT * FROM category WHERE name='.mysql_real_escape_string($name);
+	$req = 'SELECT * FROM category WHERE name='.@mysql_real_escape_string($name);
 	$result = mysql_query($req,$connexion);
-	if(!mysql_fetch_assoc($result){
-		$req = 'INSERT INTO category name VALUE '.mysql_real_escape_string($name);
+	if(!mysql_fetch_assoc($result)){
+		$req = 'INSERT INTO category name VALUE '.@mysql_real_escape_string($name);
 		$result=mysql_query($req,$connexion) or die(mysql_error());
 		echo "La catégorie a bien été ajoutée.";
 	} else {
