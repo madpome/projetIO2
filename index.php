@@ -6,7 +6,6 @@
 	include_once("page.php");
 	include_once("profil.php");
 	include_once("ajouterArticleForm.php");
-	include_once("commande.php");
 	include_once("commandeseffets.php");
 	isconnected();
 ?>
