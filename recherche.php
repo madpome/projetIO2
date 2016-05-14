@@ -28,7 +28,7 @@
 		}
 		$donnees = trim($donnéesReq,",");
 		$attr = trim($attrReq,",");
-		return "SELECT * FROM article WHERE ".$donnees.'= "'.$attr.'"';
+		return "SELECT * FROM article WHERE ".$donnees.'="'.$attr.'"';
 	}
 	
 	//Permet l'affichage de la liste des articles donnée par la fonction de recherche
@@ -39,11 +39,11 @@
 			echo("Aucun résultat trouvé");
 		} else {
 			foreach($liste as $v) {
-				echo("<form action=\"index.php\" method=\"get\">
-					<label id=\"\" class=\"\"> $liste[\"$title\"] $liste[\"$user\"] </label>
-					<input type=\"hidden\" name=\"article\" value=$v>
-					<input type=\"submit\" value=\"Lire l'article\">
-				</form>");
+				echo '<form action="index.php" method="get">'.
+					$liste["$title"]." ".$liste["$user"].'
+					<input type="hidden" name="article" value='.$v.'>
+					<input type="submit" value="Lire l\'article">
+				</form>';
 			}
 		}
 	}
