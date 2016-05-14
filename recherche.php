@@ -5,7 +5,7 @@
 		if(is_array($donneesReq)) {
 			$req = traiter($donneesReq, $attrReq);
 		} else {
-			$req = 'SELECT * FROM article WHERE '.$donneesReq.'="'.$attrReq.'"';
+			$req = 'SELECT * FROM article WHERE '.mysql_real_escape_string($donneesReq).'="'.mysql_real_escape_string($attrReq).'"';
 		}
 		$result = mysql_query($con, $req);
 		$ret;
@@ -29,7 +29,7 @@
 		}
 		$donnees = trim($donnéesReq,",");
 		$attr = trim($attrReq,",");
-		return "SELECT * FROM article WHERE ".$donnees.'="'.$attr.'"';
+		return "SELECT * FROM article WHERE ".mysql_real_escape_string($donnees).'="'.mysql_real_escape_string($attr).'"';
 	}
 	
 	//Permet l'affichage de la liste des articles donnée par la fonction de recherche
@@ -41,7 +41,7 @@
 		} else {
 			foreach($liste as $v) {
 				echo '<form action="index.php" method="get">'.
-					$liste["$title"]." ".$liste["$user"].'
+					htmlentities($liste["$title"])." ".htmlentities($liste["$user"]).'
 					<input type="hidden" name="article" value='.$v.'>
 					<input type="submit" value="Lire l\'article">
 				</form>';
