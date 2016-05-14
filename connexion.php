@@ -1,17 +1,21 @@
 <?php
 //Verification pour la connexion
 function connexion($login,$mdp){
-	$server="pams.script.univ-paris-diderot.fr";
+	$server="localhost";
 	$user="phiear22";
 	$base="phiear22";
-	$connexion=mysql_connect($server,$user,'r1M)qu0K');
+	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
 	mysql_select_db($base,$connexion);
-	$req='SELECT pwd,mail FROM users WHERE login="'.mysql_real_escape_string($login).'"';
-	$resultat=mysql_query($req,$connexion);
+	$req='SELECT rank,pwd,mail,firstname,lastname FROM users WHERE user="'.mysql_real_escape_string($login).'"';
+	$resultat=mysql_query($req,$connexion) or die(mysql_error());
 	$ligne=mysql_fetch_assoc($resultat);
 	if ($ligne && $mdp==password_verify($mdp,$ligne["pwd"])){
-		$_SESSION["login"]=$login;
+		$_SESSION["user"]=$login;
 		$_SESSION["mail"]=$ligne["mail"];
+		$_SESSION["firstname"]=$ligne["firstname"];
+		$_SESSION["lastname"]=$ligne["lastname"];
+		$_SESSION["connect"]=true;
+		$_SESSION["rank"]=$ligne["rank"];		
 		return true;
 	}else{
 		return false;
@@ -20,18 +24,18 @@ function connexion($login,$mdp){
 }
 //Met les attributs utiles de l'utilisateur dans la session
 function getatt(){
-	$server="pams.script.univ-paris-diderot.fr";
+	$server="localhost";
 	$user="phiear22";
 	$base="phiear22";
-	$connexion=mysql_connect($server,$user,'r1M)qu0K');
+	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
 	mysql_select_db($base,$connexion);
-	$req='SELECT user,mail,lastname,firstname,rank FROM users WHERE login='.$_SESSION["login"];
-	$result=mysql_query($req);
-	$attribut=mysql_fetch_assoc($result);
-	$_SESSION["user"]=$attribut["user"];
-	$_SESSION["mail"]=$attribut["mail"];
-	$_SESSION["lastname"]=$attribut["lastname"];
-	$_SESSION["firstname"]=$attribut["firstname"];
+	$req='SELECT rank,pwd,mail,firstname,lastname FROM users WHERE user="'.$_SESSION["user"].'"';
+	$resultat=mysql_query($req,$connexion) or die(mysql_error());
+	$ligne=mysql_fetch_assoc($resultat);
+	$_SESSION["mail"]=$ligne["mail"];
+	$_SESSION["lastname"]=$ligne["lastname"];
+	$_SESSION["firstname"]=$ligne["firstname"];
+	$_SESSION["rank"]=$ligne["rank"];
 	$_SESSION["connect"]=true;
 }
 //Set la valeur connecté pour la premiere connexion et permet de savoir si on est connecté ou pas
@@ -51,6 +55,7 @@ function deconnexion(){
 	$_SESSION["firstname"]=null;
 	$_SESSION["lastname"]=null;
 	$_SESSION["mail"]=null;
+	$_SESSION["rank"]=null;
 	
 	header('Location: index.php');
 }
@@ -58,7 +63,7 @@ function deconnexion(){
 function formcon(){
 ?>
 	<div id="connexion">
-	<form method="POST" action="index.php?page=connexion">
+	<form method="POST" action="index.php?&page=connexion">
 		<input type="text" placeholder="Nom d'utilisateur" name="login" required>
 		<input type="password" placeholder="Mot de passe" name="pwd" required>
 		<input type="submit" value="Me connecter">
@@ -81,4 +86,4 @@ function formuncon(){
 function nonvalide(){
 	echo "L'utilisateur/mot de passe renseigné n'existent pas/ne correspondent pas";
 }
-?>	
+?>
