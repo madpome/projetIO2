@@ -7,7 +7,7 @@
 	include_once("profil.php");
 	include_once("ajouterArticleForm.php");
 	include_once("commande.php");
-	include_once("suppression.php");
+	include_once("commandeseffets.php");
 	isconnected();
 ?>
 <!DOCTYPE html>
@@ -73,8 +73,17 @@ accueil();
 			case "supprarticle":
 				choixsupprarticle();
 				break;
+			case "choixsupprcategory":
+				choixsupprcate();
+				break;
+			case "formajoutcategory":
+				formajoutcategory;
+				break;
 			case "suppression":
 				suppression();
+				break;
+			case "ajout":
+				ajout();
 				break;
 			default:
 				welcome();
