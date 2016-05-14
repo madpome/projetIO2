@@ -6,10 +6,11 @@ function connexion($login,$mdp){
 	$base="phiear22";
 	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
 	mysql_select_db($base,$connexion);
-	$req='SELECT rank,pwd,mail,firstname,lastname FROM users WHERE user="'.mysql_real_escape_string($login).'"';
+	$req='SELECT id,rank,pwd,mail,firstname,lastname FROM users WHERE user="'.mysql_real_escape_string($login).'"';
 	$resultat=mysql_query($req,$connexion) or die(mysql_error());
 	$ligne=mysql_fetch_assoc($resultat);
 	if ($ligne && $mdp==password_verify($mdp,$ligne["pwd"])){
+		$_SESSION["user_id"]=$ligne["id"];
 		$_SESSION["user"]=$login;
 		$_SESSION["mail"]=$ligne["mail"];
 		$_SESSION["firstname"]=$ligne["firstname"];
@@ -32,6 +33,7 @@ function getatt(){
 	$req='SELECT rank,pwd,mail,firstname,lastname FROM users WHERE user="'.$_SESSION["user"].'"';
 	$resultat=mysql_query($req,$connexion) or die(mysql_error());
 	$ligne=mysql_fetch_assoc($resultat);
+	$_SESSION["user_id"]=$ligne["id"];
 	$_SESSION["mail"]=$ligne["mail"];
 	$_SESSION["lastname"]=$ligne["lastname"];
 	$_SESSION["firstname"]=$ligne["firstname"];
@@ -50,6 +52,7 @@ function isconnected(){
 //Retire les attributs de la session
 function deconnexion(){
 	session_unset();
+	$_SESSION["user_id"]=null;
 	$_SESSION["connect"]=false;
 	$_SESSION["user"]=null;
 	$_SESSION["firstname"]=null;
@@ -86,4 +89,4 @@ function formuncon(){
 function nonvalide(){
 	echo "L'utilisateur/mot de passe renseigné n'existent pas/ne correspondent pas";
 }
-?>
+?>	
