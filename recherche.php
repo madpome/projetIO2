@@ -1,6 +1,7 @@
 <?php
 	//Renvoie la liste des articles correspondants au(x) critère(s) contenu(s) dans $attrReq
 	function chercher($donneesReq, $attrReq, $con) {
+		//Si les données sont dans un tableau on traite les entrées pour obtenir la requête adaptée
 		if(is_array($donneesReq)) {
 			$req = traiter($donneesReq, $attrReq);
 		} else {
@@ -18,6 +19,7 @@
 	}
 	
 	//Permet de taitrer les entrées $données et $attr pour la requête slq
+	//Renvoie le string de la requête slq
 	function traiter ($donneesReq, $attrReq) {
 		foreach($donneesReq as $v) {
 			$donnees = $données.$v.",";
