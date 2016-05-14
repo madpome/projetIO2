@@ -6,7 +6,7 @@ function supprarticle($article_id){
 	$base="phiear22";
 	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
 	mysql_select_db($base,$connexion);
-    $req='DELETE FROM article WHERE article_id='.$article_id;
+    $req='DELETE FROM article WHERE article_id='.mysql_real_escape_string($article_id);
     $result=mysql_query($req,$connexion);
     echo "L'article a bien été supprimé";
 }
@@ -17,13 +17,13 @@ function supprutilisateur($user_id){
 	$base="phiear22";
 	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
 	mysql_select_db($base,$connexion);
-    $req1='SELECT rank FROM users WHERE id='.$user_id;
+    $req1='SELECT rank FROM users WHERE id='.mysql_real_escape_string($user_id);
     $result=mysql_query($req1,$connexion);
     $ligne=mysql_fetch_assoc($result);
     if($ligne["rank"]==1){
         echo "Vous ne pouvez pas supprimer un administrateur.";
     }else{
-        $req2='DELETE FROM users WHERE id='.$user_id;
+        $req2='DELETE FROM users WHERE id='.mysql_real_escape_string($user_id);
         $result=mysql_query($req2,$connexion);
         echo "L'utilisateur a bien été supprimé";
     }
@@ -44,7 +44,7 @@ function admincommande(){
         	<td><a href="index.php?page=supprarticle">Supprimer un article</a></td>
         </tr>
         <tr>
-        	<td><a href="index.php?page=choixajoutcategory">Ajouter un catégorie</a></td>
+        	<td><a href="index.php?page=choixajoutcategory">Ajouter une catégorie</a></td>
         </tr>
         <tr>
         	<td><a href="index.php?page=choixsupprcategory">Supprimer une catégorie</a></td>
@@ -61,7 +61,7 @@ function choixsupprarticle(){
 	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
 	mysql_select_db($base,$connexion);
     if($_SESSION["rank"]==0){
-        $req='SELECT article_id,title,user FROM article WHERE user='.$_SESSION["user"];
+        $req='SELECT article_id,title,user FROM article WHERE user='.mysql_real_escape_string($_SESSION["user"]);
     }else{
         $req='SELECT title,user,article_id FROM article';
     }
@@ -71,7 +71,7 @@ function choixsupprarticle(){
         <select name="article_id_suppr">
             <?php
             while($ligne=mysql_fetch_assoc($result)){
-                echo '<option value='.$ligne["article_id"].'>Titre :'.$ligne["title"].' Auteur:'.$ligne["user"].'</option><br>';
+                echo '<option value='.htmlentities($ligne["article_id"]).'>Titre :'.htmlentities($ligne["title"]).' Auteur:'.htmlentities($ligne["user"]).'</option><br>';
             }
             ?>
         </select>
@@ -95,7 +95,7 @@ function choixsuppruser(){
         $req='SELECT id,user,firstname,lastname FROM users';
         $result=mysql_query($req,$connexion);
         while($ligne=mysql_fetch_assoc($result)){
-            echo '<option value='.$ligne["id"].">ID:".$ligne["id"]." Nom:".$ligne["lastname"]." Prénom:".$ligne["firstname"]."</option><br>";
+            echo '<option value='.htmlentities($ligne["id"]).">ID:".htmlentities($ligne["id"])." Nom:".htmlentities($ligne["lastname"])." Prénom:".htmlentities($ligne["firstname"])."</option><br>";
         }
         echo "</select>";
         mysql_close();
@@ -103,7 +103,6 @@ function choixsuppruser(){
         echo '</form>';
 	}
 }
-
 //On choisit la catégorie à supprimer
 function choixsupprcate(){
     $server="localhost";
@@ -116,10 +115,10 @@ function choixsupprcate(){
         <select name="cate_name_suppr">
 <?php
     if($_SESSION["rank"]==1){
-        $req='SELECT name FROM category';
+        $req='SELECT cat_id,name FROM category';
         $result=mysql_query($req,$connexion);
         while($ligne=mysql_fetch_assoc($result)){
-            echo '<option value='.$ligne["name"].">".$ligne["name"]."</option><br>";
+            echo '<option value='.htmlentities($ligne["cat_id"]).">".htmlentities($ligne["name"])."</option><br>";
         }
         echo "</select>";
         mysql_close();
@@ -127,19 +126,17 @@ function choixsupprcate(){
         echo '</form>';
 	}
 }
-
 //suppression de la catégorie
-function supprcate($cate_name){
+function supprcate($cat_id){
     $server="localhost";
 	$user="phiear22";
 	$base="phiear22";
 	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
 	mysql_select_db($base,$connexion);
-    $req='DELETE FROM category WHERE name='.$cate_name;
-    $result=mysql_query($req,$connexion);
+    $req='DELETE FROM category WHERE cat_id='.mysql_real_escape_string($cat_id);
+    $result=mysql_query($req,$connexion) or die(mysql_error());
     echo "La catégorie a bien été supprimé";
 }
-
 //Formulaire pour entrer le nom de la nouvelle catégorie
 function choixajoutcate(){
 ?>
@@ -148,20 +145,20 @@ function choixajoutcate(){
 	</form>
 <?php
 }
-
 //Ajout d'une catégorie
 function ajoutcate($name) {
     $server="localhost";
 	$user="phiear22";
 	$base="phiear22";
 	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
-	$req = 'SELECT * FROM category WHERE name='.$name;
+	$req = 'SELECT * FROM category WHERE name='.mysql_real_escape_string($name);
 	$result = mysql_query($req,$connexion);
 	if(!mysql_fetch_assoc($result){
-		$req = 'INSERT INTO category name VALUE '.$name;
+		$req = 'INSERT INTO category name VALUE '.mysql_real_escape_string($name);
+		$result=mysql_query($req,$connexion) or die(mysql_error());
 		echo "La catégorie a bien été ajoutée.";
 	} else {
-		echo "Cette catégoie existe déjà";
+		echo "Cette catégorie existe déjà";
 	}
 }
 ?>
