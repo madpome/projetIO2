@@ -7,6 +7,7 @@
 	include_once("profil.php");
 	include_once("ajouterArticleForm.php");
 	include_once("commandeseffets.php");
+	include_once("commande.php");
 	isconnected();
 ?>
 <!DOCTYPE html>
