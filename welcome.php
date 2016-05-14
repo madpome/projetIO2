@@ -25,7 +25,7 @@
 			?>
 			<!-- lien vers les articles affichés -->
 			<form action="index.php" method="get">
-				<input type="hidden" name="article" value="<?php htmlentities(echo($v)); ?>">
+				<input type="hidden" name="article" value=" <?php echo htmlentities($v); ?>">
 				<input type="submit" value="aller à l'article">
 			</form>
 			<?php
