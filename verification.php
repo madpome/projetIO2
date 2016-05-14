@@ -6,7 +6,7 @@ function verification(){
 		$valide=false;
 		//Verification username/mail pas déja utilisé
 	}
-	$req='SELECT user,mail FROM users WHERE user="'.mysql_real_escape_string($_POST["user"]).'"OR mail="'.mysql_real_escape_string($_POST["mail"]).'"';
+	$req='SELECT user,mail FROM users WHERE user="'.@mysql_real_escape_string($_POST["user"]).'"OR mail="'.@mysql_real_escape_string($_POST["mail"]).'"';
 	$resultat=mysql_query($req);
 	$ligne=mysql_fetch_assoc($resultat);
 	if($ligne){
@@ -20,7 +20,7 @@ function verificationupdate(){
 		$valide=false;
 		//Verification username/mail pas déja utilisé
 	}
-	$req='SELECT mail,user FROM users WHERE user="'.mysql_real_escape_string($_SESSION["user"]).'"';
+	$req='SELECT mail,user FROM users WHERE user="'.@mysql_real_escape_string($_SESSION["user"]).'"';
 	$resultat=mysql_query($req);
 	$ligne=mysql_fetch_assoc($resultat);
 	if($ligne && $ligne["user"]!=$_SESSION["user"]){
