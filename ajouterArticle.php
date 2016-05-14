@@ -2,9 +2,9 @@
 	
 	//Ajouter un article et renvoie le message correspondant au résultat de la fonction
 	function ajouterArticle ($title, $content, $category) {
-		$req = 'INSERT INTO article user, title, content, date, category VALUES'.$_SESSION["user"].','.$title.','.$content.', NOW(),'.$category;
+		$req = 'INSERT INTO articles (user,user_id, title, content, date, category) VALUES '.$_SESSION["user"].','.$_SESSION["user_id"].','.$title.','.$content.', NOW(),'.$category;
 		$con = mysql_connect($serv, $user);
-		if (!chercher($titre, "Titre", $con) {
+		if (!chercher($titre, "Titre", $con)){
 			return FALSE;
 		} else {
 			$result = mysql_query($con, $req);
