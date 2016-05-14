@@ -128,23 +128,16 @@ function choixsupprcate(){
 }
 //suppression de la catégorie
 function supprcate($cat_id){
-    $server="localhost";
+	$server="localhost";
 	$user="phiear22";
 	$base="phiear22";
 	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
 	mysql_select_db($base,$connexion);
-    $req='DELETE FROM category WHERE cat_id='.@mysql_real_escape_string($cat_id);
-    $result=mysql_query($req,$connexion) or die(mysql_error());
-    echo "La catégorie a bien été supprimé";
+    	$req='DELETE FROM category WHERE cat_id='.@mysql_real_escape_string($cat_id);
+    	$result=mysql_query($req,$connexion) or die(mysql_error());
+    	echo "La catégorie a bien été supprimé";
 }
-//Formulaire pour entrer le nom de la nouvelle catégorie
-function choixajoutcate(){
-?>
-    <form method="post" action="index.php?page=ajout">
-        Nom de la nouvelle catégorie <input type="text" value="cate_name">
-	</form>
-<?php
-}
+
 //Ajout d'une catégorie
 function ajoutcate($name) {
     $server="localhost";
@@ -161,4 +154,14 @@ function ajoutcate($name) {
 		echo "Cette catégorie existe déjà";
 	}
 }
+
+//Formulaire d'ajout d'une nouvelle catégorie
+function formajoutcategory() {
 ?>
+	<form action="index.php?page=ajout" method="post">
+		Nom de la catégorie à ajouter (200 caractères max) : <input type="text" value="cate_name" maxlength=>
+		<input type="submit" value="Ajouter">
+	</form>
+<?php
+}
+<?>
