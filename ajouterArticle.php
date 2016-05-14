@@ -22,8 +22,8 @@
 	<div>
 		<?php
 		//Inutile, le on escape uneiquement lors de l'affichage
-		//$_POST["title"] = htmlspecialchars($_POST["title"]);
-		//$_POST["content"] = htmlspecialchars($_POST["content"]);
+		$_POST["title"] = htmlspecialchars($_POST["title"]);
+		$_POST["content"] = htmlspecialchars($_POST["content"]);
 		$result = ajouterArticle($_POST["title"], $_POST["content"], $_POST["category"]);
 		
 		if (!$result){
