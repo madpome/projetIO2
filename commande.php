@@ -47,7 +47,7 @@ function admincommande(){
         	<td><a href="index.php?page=choixajoutcategory">Ajouter un catégorie</a></td>
         </tr>
         <tr>
-        	<td><a href="index.php?page=supprcategory">Supprimer une catégorie</a></td>
+        	<td><a href="index.php?page=choixsupprcategory">Supprimer une catégorie</a></td>
         </tr>
 	</table>
 <?php
@@ -103,5 +103,65 @@ function choixsuppruser(){
         echo '</form>';
 	}
 }
-?>
 
+//On choisit la catégorie à supprimer
+function choixsupprcate(){
+    $server="localhost";
+	$user="phiear22";
+	$base="phiear22";
+	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
+	mysql_select_db($base,$connexion);
+?>
+    <form method="post" action="index.php?page=suppression">
+        <select name="cate_name_suppr">
+<?php
+    if($_SESSION["rank"]==1){
+        $req='SELECT name FROM category';
+        $result=mysql_query($req,$connexion);
+        while($ligne=mysql_fetch_assoc($result)){
+            echo '<option value='.$ligne["name"].">".$ligne["name"]."</option><br>";
+        }
+        echo "</select>";
+        mysql_close();
+        echo '<input type="submit" value="Supprimer cette categorie">';
+        echo '</form>';
+	}
+}
+
+//suppression de la catégorie
+function supprcate($cate_name){
+    $server="localhost";
+	$user="phiear22";
+	$base="phiear22";
+	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
+	mysql_select_db($base,$connexion);
+    $req='DELETE FROM category WHERE name='.$cate_name;
+    $result=mysql_query($req,$connexion);
+    echo "La catégorie a bien été supprimé";
+}
+
+//Formulaire pour entrer le nom de la nouvelle catégorie
+function choixajoutcate(){
+?>
+    <form method="post" action="index.php?page=ajout">
+        Nom de la nouvelle catégorie <input type="text" value="cate_name">
+	</form>
+<?php
+}
+
+//Ajout d'une catégorie
+function ajoutcate($name) {
+    $server="localhost";
+	$user="phiear22";
+	$base="phiear22";
+	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
+	$req = 'SELECT * FROM category WHERE name='.$name;
+	$result = mysql_query($req,$connexion);
+	if(!mysql_fetch_assoc($result){
+		$req = 'INSERT INTO category name VALUE '.$name;
+		echo "La catégorie a bien été ajoutée.";
+	} else {
+		echo "Cette catégoie existe déjà";
+	}
+}
+?>
