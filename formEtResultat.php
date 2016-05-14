@@ -22,23 +22,28 @@
 <?php
 	}
 	function resultatrecherche(){
-		$donnees;
+		$données;
 		$attr;
-		if (isset($_POST["auteur"])) {
-			$donnees[0] =$_POST["auteur"]);
-			$attr[0] = "user";
+		$idx=0;
+		if (!empty($_POST["auteur"])) {
+			$données[$idx] =$_POST["auteur"];
+			$attr[$idx] = "user";
+			$idx++;
 		}
-		if (isset($_POST["date"])) {
-			$donnees[1] =$_POST["date"];
-			$attr[1] = "date";
+		if (!empty($_POST["date"])) {
+			$données[$idx] =$_POST["date"];
+			$attr[$idx] = "date";
+			$idx++;		
 		}
-		if (isset($_POST["title"])) {
-			$donnees[2] =$_POST["title"];
-			$attr[2] = "title";
+		if (!empty($_POST["title"])) {
+			$données[$idx] =$_POST["title"];
+			$attr[$idx] = "title";
+			$idx++;		
 		}
 		if ($_POST["category"] != "all") {
-			$donnees[3] = $_POST["category"];
-			$attr[3] = "category";
+			$données[$idx] = $_POST["category"];
+			$attr[$idx] = "category";
+			$idx++;
 		}
 		afficherListeArticle($données, $attr);
 	}
