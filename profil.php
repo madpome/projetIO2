@@ -36,11 +36,7 @@
             </td>
 			<td>
 <?php			    
-			$server="pams.script.univ-paris-diderot.fr";
-			$user="phiear22";
-			$base="phiear22";
-			$connexion=mysql_connect($server,$user,'r1M)qu0K');
-			afficherListeArticle ($_SESSION["user"], "user", $connexion);
+			afficherListeArticle ($_SESSION["user"], "user");
 ?>
 			</td>
         </tr>
