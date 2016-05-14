@@ -4,11 +4,8 @@
 	include_once("inscription.php");
 	include_once("sauvegarde.php");
 	include_once("page.php");
+	include_once("profil.php");
 	isconnected();
-	/*$_SESSION["connect"]=true;
-	$_SESSION["firstname"]="Philippe";
-	$_SESSION["lastname"]="EAR";
-	$_SESSION["mail"]="philippe@boss.fr";*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,9 +40,7 @@ accueil();
 				}
 				break;
 			case "connexion":
-				$valide=connexion($_POST["login"],$_POST["pwd"]);
-				if($valide){
-					getatt();
+				if(connexion($_POST["login"],$_POST["pwd"])){
 					header('Location: index.php');
 				}else{
 					nonvalide();
@@ -60,8 +55,12 @@ accueil();
 			case "article":
 				affiche_article($_GET["article"]);
 				break;
-			case "profil":
+			case "update":
+				update();
 				break;
+			case "profil":
+				profil();
+				break;	
 			default:
 				welcome();
 				break;		
