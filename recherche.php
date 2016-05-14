@@ -6,7 +6,6 @@
 		} else {
 			$req = 'SELECT * FROM article WHERE '.$donneesReq.'="'.$attrReq.'"';
 		}
-		$req = "SELECT * FROM article WHERE \"$attrReq\" = \"$donnéesReq\"";
 		$result = mysql_query($con, $req);
 		$ret;
 		$idx = 0;
