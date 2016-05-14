@@ -83,7 +83,7 @@ accueil();
 				choixsupprcate();
 				break;
 			case "formajoutcategory":
-				formajoutcategory;
+				formajoutcategory();
 				break;
 			case "suppression":
 				suppression();
