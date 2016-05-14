@@ -32,23 +32,6 @@
 		return "SELECT * FROM article WHERE ".mysql_real_escape_string($donnees).'="'.mysql_real_escape_string($attr).'"';
 	}
 	
-	//Permet l'affichage de la liste des articles donnée par la fonction de recherche
-	//En argument, les données pour la recherche
-	function afficherListeArticle ($données, $attr, $connexion) {
-		$liste = chercher($données, $attr, $connexion);
-		if (is_null($liste) {
-			echo("Aucun résultat trouvé");
-		} else {
-			foreach($liste as $v) {
-				echo '<form action="index.php" method="get">'.
-					htmlentities($liste["$title"])." ".htmlentities($liste["$user"]).'
-					<input type="hidden" name="article" value='.$v.'>
-					<input type="submit" value="Lire l\'article">
-				</form>';
-			}
-		}
-	}
-	
 	//Renvoie la liste des catégories dans la base de données
 	function listeCategory ($connexion) {
 		$req = "SELECT * FROM category";
