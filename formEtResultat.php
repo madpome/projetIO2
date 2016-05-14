@@ -47,16 +47,4 @@
 		}
 		afficherListeArticle($données, $attr);
 	}
-	
-	function affichagerecherchecategorie(){
-		foreach($categories as $v) {
-?>
-		<form action="index.php?page=resultat" method="post">
-			Catégorie <?php echo htmlentities($v);?>
-			<input type="hidden" value=<?php echo htmlentities($v);?>
-			<input type="submit" value="Afficher les articles de cette catégorie">
-		</form>
-<?php
-		}
-	}
 ?>
