@@ -2,7 +2,7 @@
 	
 	//Ajouter un article et renvoie le message correspondant au résultat de la fonction
 	function ajouterArticle ($title, $content, $category) {
-		$req = "INSERT INTO article user, title, content, date, category VALUES $_SESSION[\"user\"], $title, $content, NOW(), $category";
+		$req = 'INSERT INTO article user, title, content, date, category VALUES'.$_SESSION["user"].','.$title.','.$content.', NOW(),'.$category;
 		$con = mysql_connect($serv, $user);
 		if (!chercher($titre, "Titre", $con) {
 			return FALSE;
