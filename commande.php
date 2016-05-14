@@ -35,14 +35,20 @@ function admincommande(){
     <table id="admincommande">
         Commandes administrateur
         <tr>
-            <td><a href="index.php?page=supprmembre">Supprimer un membre</a></td>
-		</tr>
+        	<td><a href="index.php?page=supprmembre">Supprimer un membre</a></td>
+	</tr>
         <tr>
-            <td><a href="index.php?page=modifarticle">Modifier un article</a></td>
+        	<td><a href="index.php?page=modifarticle">Modifier un article</a></td>
         </tr>
-		<tr>
-            <td><a href="index.php?page=supprarticle">Supprimer un article</a></td>
-        </tr>  
+	<tr>
+        	<td><a href="index.php?page=supprarticle">Supprimer un article</a></td>
+        </tr>
+        <tr>
+        	<td><a href="index.php?page=ajoutercategory">Ajouter un catégorie</a></td>
+        </tr>
+        <tr>
+        	<td><a href="index.php?page=supprcategory">Supprimer une catégorie</a></td>
+        </tr>
 	</table>
 <?php
     }
