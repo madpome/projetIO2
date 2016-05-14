@@ -95,7 +95,6 @@ function choixsuppruser(){
         mysql_close();
         echo '<input type="submit value="Supprimer cet utilisateur">';
         echo '</form>';
-    }
+	}
 }
 ?>
-
