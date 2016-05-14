@@ -25,7 +25,7 @@
 			?>
 			<!-- lien vers les articles affichés -->
 			<form action="index.php" method="get">
-				<input type="hidden" name="article" value=<?php echo($v); ?>>
+				<input type="hidden" name="article" value="<?php htmlentities(echo($v)); ?>">
 				<input type="submit" value="aller à l'article">
 			</form>
 			<?php
@@ -39,7 +39,7 @@
 	<div>
 		<!-- Lien pour afficher plus d'articles, toujours dans l'ordre "plus récent"-->
 		<form action="welcome.php" method="get">
-			<input type="hidden" value=<?php $nbArticles ?>>
+			<input type="hidden" value="<?php echo htmlentities($nbArticles); ?>">
 			<input type="submit" value="Voir plus">
 		</form>
 	</div>
