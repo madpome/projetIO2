@@ -2,6 +2,8 @@
 	
 	//Ajouter un article et renvoie le message correspondant au résultat de la fonction
 	function ajouterArticle ($title, $content, $category) {
+		$server="localhost";
+		$user="phiear22";
 		$req = 'INSERT INTO articles (user,user_id, title, content, date, category) VALUES '.$_SESSION["user"].','.$_SESSION["user_id"].','.$title.','.$content.', NOW(),'.$category;
 		$con = mysql_connect($serv, $user);
 		if (!chercher($titre, "Titre", $con)){
@@ -26,7 +28,7 @@
 		
 		if (!$result){
 		?>
-		L'article n'a pas pu être publier, veuillez verifier que le titre n'est pas déjà utilisé.
+		L'article n'a pas pu être publié, veuillez verifier que le titre n'est pas déjà utilisé.
 		<form method="post" action="ajouterArticleForm">
 			<!-- Les infos à retourner vers le formulaire d'ajout d'article - éviter la réécriture si possible. -->
 			<input type="hidden" name="title" value= <?php echo $_POST["title"]; ?>>
