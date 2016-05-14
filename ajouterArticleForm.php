@@ -5,7 +5,7 @@
 		$user="phiear22";
 		$base="phiear22";
 		$connexion=@mysql_connect($server,$user,'r1M)qu0K');
-		//$category = listeCategory($connexion);
+		$category = listeCategory();
 		if($_SESSION["connect"]){
 ?>
 		<div id="formarticle">
@@ -28,7 +28,7 @@
 				?>
 				<textarea name="content" rows="50" cols="100" maxlength="20000" required> <?php echo htmlentities($value); ?> </textarea>
 				
-				<!---<select name="category">
+				<select name="category">
 					<?php
 					foreach ($category as $v) {
 						echo("<option value=$v");
@@ -38,13 +38,11 @@
 						echo ">.".htmlentities($v)."</option>";
 					}
 					?>
-				</select>--->
+				</select>
 				
 				<input type="submit" value="Poster cet article">
 			</form>
 		</div>
-			
-			
 		<?php
 		}else{
 			pasencoreinscrit();
