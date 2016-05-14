@@ -8,7 +8,7 @@
 		//$category = listeCategory($connexion);
 		if($_SESSION["connect"]){
 ?>
-		<div>
+		<div id="formarticle">
 			<form method="post" action="ajouterArticle.php">
 				<?php
 				if(isset($_POST["title"])){
@@ -17,7 +17,7 @@
 					$value="Votre titre (200 caractères max)";
 				}
 				?>
-				<label> Titre : <label> <input type="text" name="title" size=50 value="<?php echo $value; ?>" maxlength=200 required>
+				<label> Titre : <label> <input type="text" name="title" size=50 value="<?php echo htmlentities($value); ?>" maxlength=200 required>
 
 				<?php
 				if(isset($_POST["content"])){
@@ -26,7 +26,7 @@
 					$value = "Votre article (20.000 caractères max)";
 				}
 				?>
-				<textarea name="content" rows="50" cols="100" maxlength="20000" required> <?php echo $value; ?> </textarea>
+				<textarea name="content" rows="50" cols="100" maxlength="20000" required> <?php echo htmlentities($value); ?> </textarea>
 				
 				<!---<select name="category">
 					<?php
@@ -35,7 +35,7 @@
 						if($_POST["category"] == "$v"){
 							echo("selected");
 						}
-						echo("> $v </option>");
+						echo ">.".htmlentities($v)."</option>";
 					}
 					?>
 				</select>--->
@@ -47,12 +47,7 @@
 			
 		<?php
 		}else{
-		?>
-		
-			Vous devez être connecté pour poster un article
-			<a href="index.php?page=inscription"> Pas encore inscrit ? Cliquez ici </a>
-			
-		<?php
+			pasencoreinscrit();
 		}
 		?>
 <?php
