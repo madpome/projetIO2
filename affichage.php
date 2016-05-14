@@ -12,24 +12,21 @@
 		echo "<div>".htmlentities($article["title"])." par ".htmlentities($article["user"]);
 		echo "<img src= ";
 		switch($article["category"]) {
-			case :
+			case "blabla":
 				echo("\"chemin vers l'image\" alt=\"\"");
 				break;
 		}
 	}
-	
-	//Permet l'affichage de la liste des articles donnée par la fonction de recherche
-	//En argument, les données pour la recherche
 	function afficherListeArticle ($données, $attr) {
 		$liste = chercher($données, $attr);
-		if (is_null($liste) {
+		if (!isset($liste) || is_null($liste) || empty($liste)) {
 			echo("Aucun résultat trouvé");
 		} else {
-			foreach($liste as $v) {
+			for($i=0;$i<sizeof($liste);$i++){
 				echo '<form action="index.php" method="get">'.
-					htmlentities($liste["$title"])." ".htmlentities($liste["$user"]).'
-					<input type="hidden" name="article" value='.$v.'>
-					<input type="submit" value="Lire l\'article">
+				htmlentities($liste[$i]["title"])." ".htmlentities($liste[$i]["user"]).'
+				<input type="hidden" name="article" value="'.htmlentities($liste[$i]["title"]).'">
+				<input type="submit" value="Lire l\'article">
 				</form>';
 			}
 		}
