@@ -14,6 +14,20 @@ function verification(){
 	}
 	return $valide;
 }
+function verificationupdate(){
+	$valide=true;
+	if ($_POST["pwd"]!=$_POST["pwd2"]){
+		$valide=false;
+		//Verification username/mail pas déja utilisé
+	}
+	$req='SELECT mail,user FROM users WHERE user="'.mysql_real_escape_string($_SESSION["user"]).'"';
+	$resultat=mysql_query($req);
+	$ligne=mysql_fetch_assoc($resultat);
+	if($ligne && $ligne["user"]!=$_SESSION["user"]){
+		$valide=false;
+	}
+	return $valide;
+}
 //Passage des arg
 function validation(){
 	//passage en htmlentities et passage dans la session
