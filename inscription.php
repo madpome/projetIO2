@@ -40,19 +40,15 @@ function non_inscrit(){
 //Inscription pour modification du profil d'un utilisateur connecté
 function inscrit(){
 ?>
-<form method=POST action="index.php?page=save">
+<form method="POST" action="index.php?page=update">
 <table id="inscription">
-<tr>
-	<label for="userid">
-		<td>Nom d'utilisateur:</td><td><input type="text" name="user" id="userid" value=<?php echo $_SESSION["login"];?> required></td>
-	</label></tr>
 	<tr>
 	<label for="lastname">
-		<td>Nom:</td><td><input type="text" name="lastname" id="lastname" value=<?php echo $_SESSION["lastname"];?> required></td>
+		<td>Nom:</td><td><input type="text" name="lastname" id="lastname" value="<?php echo $_SESSION["lastname"];?>" required></td>
 	</label></tr>
 	<tr>
 	<label for="firstname">
-		<td>Prénom:</td><td><input type="text" name="firstname" id="firstname" value=<?php echo $_SESSION["firstname"];?> required></td>
+		<td>Prénom:</td><td><input type="text" name="firstname" id="firstname" value="<?php echo $_SESSION["firstname"];?>" required></td>
 	</label></tr>
 	<tr>
 	<label for="pwd">
@@ -64,7 +60,7 @@ function inscrit(){
 	</label></tr>
 	<tr>
 	<label for="mail">	
-		<td>Adresse e-mail: </td><td><input type="mail" name="mail" id="mail" value=<?php echo $_SESSION["mail"] ;?> required>
+		<td>Adresse e-mail: </td><td><input type="mail" name="mail" id="mail" value="<?php echo $_SESSION["mail"] ;?>" required>
 	</td></label></tr>
 	<tr>
 	<td></td>
@@ -76,3 +72,4 @@ function inscrit(){
 <?php
 }
 ?>
+
