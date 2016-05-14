@@ -5,6 +5,9 @@
 	include_once("sauvegarde.php");
 	include_once("page.php");
 	include_once("profil.php");
+	include_once("ajouterArticleForm.php");
+	include_once("commande.php");
+	include_once("suppression.php");
 	isconnected();
 ?>
 <!DOCTYPE html>
@@ -60,7 +63,19 @@ accueil();
 				break;
 			case "profil":
 				profil();
-				break;	
+				break;
+			case "ecrire":
+				formajoutarticle();
+				break;
+			case "supprmembre":
+				choixsuppruser();
+				break;
+			case "supprarticle":
+				choixsupprarticle();
+				break;
+			case "suppression":
+				suppression();
+				break;
 			default:
 				welcome();
 				break;		
