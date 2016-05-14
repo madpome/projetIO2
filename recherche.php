@@ -48,10 +48,18 @@
 	
 	
 	//Renvoie la liste des catégories dans la base de données
-	function listeCategory ($connexion) {
+	function listeCategory () {
+		$server="localhost";
+		$user="phiear22";
+		$base="phiear22";
+		$con=@mysql_connect($server,$user,'r1M)qu0K');
+		mysql_select_db($base,$con);
 		$req = "SELECT * FROM category";
-		while ($result != false) {
-			$ret[$idx] = mysql_fetch_assoc($result);
+		$result=mysql_query($req,$con);
+		$idx=0;
+		$ret=array();
+		while ($ligne=mysql_fetch_assoc($result)) {
+			$ret[$idx]=$ligne["name"];
 			$idx++;
 		}
 		return $ret;
