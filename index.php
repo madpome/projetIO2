@@ -67,6 +67,12 @@ accueil();
 			case "ecrire":
 				formajoutarticle();
 				break;
+			case "rechercher":
+				formrechercherarticle();
+				break;
+			case "resultat":
+				resultatrecherche();
+				break;
 			case "supprmembre":
 				choixsuppruser();
 				break;
