@@ -1,7 +1,7 @@
 <?php
 	function welcome(){
 		if($_SESSION["connect"]){
-			echo "BONJOUR ".$_SESSION["firstname"]." ".$_SESSION["lastname"]." votre mail est :".$_SESSION["mail"];
+			echo "BONJOUR ".htmlentities($_SESSION["firstname"])." ".htmlentities($_SESSION["lastname"])." votre mail est :".htmlentities($_SESSION["mail"]);
 		}else{
 			echo 'BONJOUR INCONNU, ';
 		}
@@ -38,7 +38,7 @@ Site crée par:
 				<?php
 					echo "Bienvenue <br>";
 					if ($_SESSION["connect"]){
-						echo $_SESSION["lastname"]." ".$_SESSION["firstname"];
+						echo htmlentities($_SESSION["lastname"])." ".htmlentities($_SESSION["firstname"]);
 					}else{
 						echo "invité !";
 					}
