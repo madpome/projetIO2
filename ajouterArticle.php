@@ -6,7 +6,7 @@
 		$user="phiear22";
 		$req = 'INSERT INTO articles (user,user_id, title, content, date, category) VALUES '.mysql_real_escape_string($_SESSION["user"]).','.mysql_real_escape_string($_SESSION["user_id"]).','.mysql_real_escape_string($title).','.mysql_real_escape_string($content).', NOW(),'.mysql_real_escape_string($category);
 		$con = mysql_connect($serv, $user);
-		if (!chercher($titre, "Titre", $con)){
+		if (!chercher($titre, "Titre")){
 			return FALSE;
 		} else {
 			$result = mysql_query($con, $req);
