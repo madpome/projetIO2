@@ -44,11 +44,11 @@ function inscrit(){
 <table id="inscription">
 	<tr>
 	<label for="lastname">
-		<td>Nom:</td><td><input type="text" name="lastname" id="lastname" value="<?php echo $_SESSION["lastname"];?>" required></td>
+		<td>Nom:</td><td><input type="text" name="lastname" id="lastname" value="<?php echo htmlentities($_SESSION["lastname"]);?>" required></td>
 	</label></tr>
 	<tr>
 	<label for="firstname">
-		<td>Prénom:</td><td><input type="text" name="firstname" id="firstname" value="<?php echo $_SESSION["firstname"];?>" required></td>
+		<td>Prénom:</td><td><input type="text" name="firstname" id="firstname" value="<?php echo htmlentities($_SESSION["firstname"]);?>" required></td>
 	</label></tr>
 	<tr>
 	<label for="pwd">
@@ -60,7 +60,7 @@ function inscrit(){
 	</label></tr>
 	<tr>
 	<label for="mail">	
-		<td>Adresse e-mail: </td><td><input type="mail" name="mail" id="mail" value="<?php echo $_SESSION["mail"] ;?>" required>
+		<td>Adresse e-mail: </td><td><input type="mail" name="mail" id="mail" value="<?php echo htmlentities($_SESSION["mail"]) ;?>" required>
 	</td></label></tr>
 	<tr>
 	<td></td>
@@ -72,4 +72,3 @@ function inscrit(){
 <?php
 }
 ?>
-
