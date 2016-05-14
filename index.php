@@ -73,6 +73,9 @@ accueil();
 			case "resultat":
 				resultatrecherche();
 				break;
+			case "category":
+				affichagerecherchecategorie();
+				break;
 			case "supprmembre":
 				choixsuppruser();
 				break;
