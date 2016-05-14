@@ -4,7 +4,7 @@
 	function ajouterArticle ($title, $content, $category) {
 		$server="localhost";
 		$user="phiear22";
-		$req = 'INSERT INTO articles (user,user_id, title, content, date, category) VALUES '.$_SESSION["user"].','.$_SESSION["user_id"].','.$title.','.$content.', NOW(),'.$category;
+		$req = 'INSERT INTO articles (user,user_id, title, content, date, category) VALUES '.mysql_real_escape_string($_SESSION["user"]).','.mysql_real_escape_string($_SESSION["user_id"]).','.mysql_real_escape_string($title).','.mysql_real_escape_string($content).', NOW(),'.mysql_real_escape_string($category);
 		$con = mysql_connect($serv, $user);
 		if (!chercher($titre, "Titre", $con)){
 			return FALSE;
@@ -28,12 +28,13 @@
 		
 		if (!$result){
 		?>
+		
 		L'article n'a pas pu être publié, veuillez verifier que le titre n'est pas déjà utilisé.
 		<form method="post" action="ajouterArticleForm">
 			<!-- Les infos à retourner vers le formulaire d'ajout d'article - éviter la réécriture si possible. -->
-			<input type="hidden" name="title" value= <?php echo $_POST["title"]; ?>>
-			<input type="hidden" name="content" value=<?php echo $_POST["content"];?>>
-			<input type="hidden"  name="category" value=<?php echo $_POST["category"];?>>
+			<input type="hidden" name="title" value="<?php echo htmlentities($_POST["title"]); ?>">
+			<input type="hidden" name="content" value="<?php echo htmlentities($_POST["content"]);?>">
+			<input type="hidden"  name="category" value="<?php echo htmlentities($_POST["category"]);?>">
 			<input type="submit" value="Retourner vers l'écriture d'article">
 		</form>
 		<a href="index.php"> Retourner à l'accueil </a>	
@@ -48,8 +49,8 @@
 			$user="phiear22";
 			$base="phiear22";
 			$connexion=mysql_connect($server,$user,'r1M)qu0K');
-			$value = chercherS($_POST["title"], "title", $connexion);
-			echo '<input type="hidden" name="article" value='.$value.">";
+			$value = chercher($_POST["title"], "title", $connexion);
+			echo '<input type="hidden" name="article" value='.htmlentities($value).">";
 			mysql_close();
 			?>
 			
