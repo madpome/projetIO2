@@ -2,7 +2,7 @@
 //Inscription si l'utilisateur s'inscrit;
 function non_inscrit(){
 ?>
-<form method=POST action="index.php?page=save">
+<form method="POST" action="index.php?page=save">
 <table id="inscription">
 <tr>
 	<label for="userid">
