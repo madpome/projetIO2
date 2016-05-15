@@ -1,7 +1,7 @@
 <?php
 //Verification pour la connexion
 function connexion($login,$mdp){
-	$server="localhost";
+	$server="pams.script.univ-paris-diderot.fr";
 	$user="phiear22";
 	$base="phiear22";
 	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
@@ -25,7 +25,7 @@ function connexion($login,$mdp){
 }
 //Met les attributs utiles de l'utilisateur dans la session
 function getatt(){
-	$server="localhost";
+	$server="pams.script.univ-paris-diderot.fr";
 	$user="phiear22";
 	$base="phiear22";
 	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
@@ -89,4 +89,4 @@ function formuncon(){
 function nonvalide(){
 	echo "L'utilisateur/mot de passe renseigné n'existent pas/ne correspondent pas";
 }
-?>		
+?>	

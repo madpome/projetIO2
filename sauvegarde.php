@@ -1,7 +1,7 @@
 <?php
 //enregistrement
 function saveModif(){
-	$server="localhost";
+	$server="pams.script.univ-paris-diderot.fr";
 	$user="phiear22";
 	$base="phiear22";
 	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
@@ -15,7 +15,7 @@ function saveModif(){
 	
 }
 function sauvegarde(){
-	$server="localhost";
+	$server="pams.script.univ-paris-diderot.fr";
 	$user="phiear22";
 	$base="phiear22";
 	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
@@ -39,7 +39,7 @@ function sauvegarde(){
 	mysql_close();
 }
 function update(){
-	$server="localhost";
+	$server="pams.script.univ-paris-diderot.fr";
 	$user="phiear22";
 	$base="phiear22";
 	$connexion=@mysql_connect($server,$user,'r1M)qu0K');

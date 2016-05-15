@@ -5,11 +5,10 @@ TABLE     :users
 ATTRIBUTS :firstname //prenom
 	   lastname //nom de famille
            mail     //mail
-	   pwd      // mot de passe hachÃ© avec sel
+	   pwd      // mot de passe haché avec sel
 	   id       // clef primaire unique identifiant auto_increment
            rank     // rang de l'utilisateur (0=lambda 1=admin)
            user     // nom d'utilisateur
-           preference // preference pour les styles css
 
 
 
@@ -17,15 +16,16 @@ TABLE	  :article
 
 ATTRIBUTS :article_id //id de l'article clef primaire unique
            user       // nom de l'utilisateur
-           date       // date de crÃ©ation de l'article, Ã  fixer a chaque crÃ©ation d'articles avec NOW()
+           date       // date de création de l'article, à fixer a chaque création d'articles avec NOW()
            content    // contenu du texte (20 000 char)
            title      // titre de l'article
-           (comment)  // commentaires eventuels si on implante l'extension (2000 char)
-
+           category_id// id de la catégorie de l'article
+		
 
 
 TABLE	  :category
-ATTRIBUTS :name	//nom de la catÃ©gorie
+ATTRIBUTS :name	//nom de la catégorie
+	   category_id //id de la catégorie
 
 
 ATTRIBUTS DISPONIBLES DANS LA SESSION SI CONNECTE:
@@ -36,4 +36,5 @@ ATTRIBUTS DISPONIBLES DANS LA SESSION SI CONNECTE:
 	$_SESSION["lastname"]
 	$_SESSION["firstname"]
 	$_SESSION["rank"]
-	$_SESSION["user_id"]
+
+Les tables n'ont pas encore été créées dans la base de la fac

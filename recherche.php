@@ -2,7 +2,7 @@
 	//Renvoie la liste des articles correspondants au(x) critère(s) contenu(s) dans $attrReq
 	function chercher($donneesReq, $attrReq) {
 		//Si les données sont dans un tableau on traite les entrées pour obtenir la requête adaptée
-		$server="localhost";
+		$server="pams.script.univ-paris-diderot.fr";
 		$user="phiear22";
 		$base="phiear22";
 		$con=@mysql_connect($server,$user,'r1M)qu0K');
@@ -40,7 +40,7 @@
 			}
 		}
 		$attr[$index]="category_id";
-		$server="localhost";
+		$server="pams.script.univ-paris-diderot.fr";
 		$user="phiear22";
 		$base="phiear22";
 		$con=@mysql_connect($server,$user,'r1M)qu0K');
@@ -56,7 +56,7 @@
 	//Renvoie le string de la requête slq
 	function traiter (&$donneesReq, &$attrReq) {
 		$reponse='SELECT * FROM article WHERE ';
-		getcatid($donneesReq,$attrReq);	
+		getcatid($donneesReq,$attrReq);
 		for($i=0;$i<count($donneesReq);$i++){
 			if($i==(count($donneesReq)-1)){
 				$reponse.=@mysql_real_escape_string($attrReq[$i]).'="'.@mysql_real_escape_string($donneesReq[$i]).'"';
@@ -67,13 +67,9 @@
 		return $reponse;
 	}
 	
-	//Permet l'affichage de la liste des articles donnée par la fonction de recherche
-	//En argument, les données pour la recherche
-	
-	
 	//Renvoie la liste des catégories dans la base de données
 	function listeCategory () {
-		$server="localhost";
+		$server="pams.script.univ-paris-diderot.fr";
 		$user="phiear22";
 		$base="phiear22";
 		$con=@mysql_connect($server,$user,'r1M)qu0K');

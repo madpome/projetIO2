@@ -1,9 +1,10 @@
 <?php
-	function formrechercherarticle(){
+function formrechercherarticle(){
 ?>
-	<div>
-		<table>
-			<form action="index.php?page=resultat" method="post">
+<div>
+	<table>
+		<h2>Chercher un article :</h2>
+		<form action="index.php?page=resultat" method="post">
 			<tr>
 				<td>
 				Auteur :
@@ -26,12 +27,12 @@
 				</td>
 				<td>
 				<select name="category">
-	<?php
+<?php
 				$categories = listeCategory();
 				foreach($categories as $v) {
-					echo '<option value='.$v.'>'.$v.'</option>';
+					echo '<option value='.htmlentities($v).'>'.htmlentities($v).'</option>';
 				}
-	?>
+?>
 					<option value="all"> Toutes catégories </option>
 				</select>
 				</td>
@@ -44,31 +45,31 @@
 				<input type="submit" value="Lancer la recherche">
 				</td>
 			</tr>
-			</form>
-		</table>
-	</div>
-	
+		</form>
+	</table>
+</div>
+
 <?php
+}
+function resultatrecherche(){
+	$donnees=array();
+	$attr=array();
+	$idx=0;
+	if(!empty($_POST["auteur"])) {
+		$donnees[$idx] =$_POST["auteur"];
+		$attr[$idx] = "user";
+		$idx++;
 	}
-	function resultatrecherche(){
-		$donnees=array();
-		$attr=array();
-		$idx=0;
-		if(!empty($_POST["auteur"])) {
-			$donnees[$idx] =$_POST["auteur"];
-			$attr[$idx] = "user";
-			$idx++;
-		}
-		if(!empty($_POST["title"])) {
-			$donnees[$idx] =$_POST["title"];
-			$attr[$idx]="title";
-			$idx++;		
-		}
-		if($_POST["category"]!="all") {
-			$donnees[$idx]=$_POST["category"];
-			$attr[$idx]="category";
-			$idx++;
-		}
-		afficherListeArticle($donnees,$attr);
+	if(!empty($_POST["title"])) {
+		$donnees[$idx] =$_POST["title"];
+		$attr[$idx]="title";
+		$idx++;		
 	}
+	if($_POST["category"]!="all") {
+		$donnees[$idx]=$_POST["category"];
+		$attr[$idx]="category";
+		$idx++;
+	}
+	afficherListeArticle($donnees,$attr);
+}
 ?>
