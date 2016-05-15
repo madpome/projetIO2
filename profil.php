@@ -39,8 +39,11 @@
 			afficherListeArticle ($_SESSION["user"], "user");
 ?>
 			</td>
-        </tr>
+		</tr>
     </table>
+	<?php	if($_SESSION["rank"]==0){?>
+		<a href="index.php?page=supprarticle">Supprimer un de mes article</a><br>
+	<?php } ?>
     <a href="index.php?page=inscription">Modifier mes données personnelles</a><br>
 <?php
     if($_SESSION["rank"]==1){
