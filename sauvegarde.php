@@ -1,5 +1,19 @@
 <?php
-//enregistrement 
+//enregistrement
+function saveModif(){
+	$server="localhost";
+	$user="phiear22";
+	$base="phiear22";
+	$connexion=@mysql_connect($server,$user,'r1M)qu0K');
+	mysql_select_db($base,$connexion);
+	$reqcatid='SELECT category_id FROM category WHERE name="'.@mysql_real_escape_string($_POST["category"]).'"';
+	$result=mysql_query($reqcatid,$connexion) or die(mysql_error());
+	$ligne=mysql_fetch_assoc($result);
+	$req='UPDATE article SET content="'.@mysql_real_escape_string($_POST["content"]).'",category_id='.@mysql_real_escape_string($ligne["category_id"]).' WHERE article_id='.$_POST["article_id"];
+	$result=mysql_query($req,$connexion) or die(mysql_error());
+	echo "L'article a bien été modifié.";
+	
+}
 function sauvegarde(){
 	$server="localhost";
 	$user="phiear22";
@@ -19,12 +33,10 @@ function sauvegarde(){
 		}else{
 			echo "Une erreur est survenur lors de l'enregistrement:".mysql_error();
 		}
-		mysql_close();
 	}else{
-		echo "Ce nom d'utilisateur/mail a déjà été utilisé";
-		mysql_close();
-		header('Location: index.php');
+		echo "Ce nom d'utilisateur/mail a déjà été utilisé ou les mots de passe ne correspondent pas.";
 	}
+	mysql_close();
 }
 function update(){
 	$server="localhost";
