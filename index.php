@@ -70,6 +70,15 @@ accueil();
 			case "ecrire":
 				formajoutarticle();
 				break;
+			case "choixmodif":
+				choixmodifarticle();
+				break;
+			case "modifarticle":
+				modifArticle($_POST["article_id_modif"]);
+				break;
+			case "savemodif":
+				saveModif();
+				break;
 			case "supprmembre":
 				choixsuppruser();
 				break;
@@ -85,18 +94,21 @@ accueil();
 			case "suppression":
 				suppression();
 				break;
+			case "ajoutCat":
+				ajoutCat();
+				break;
 			case "ajoutArticle":
 				ajoutArticle();
 				break;
-			/*case "rechercher":		
--				formrechercherarticle();		
--				break;		
--			case "resultat":		
--				resultatrecherche();		
--				break;		
--			case "category":		
--				affichagerecherchecategorie();		
--				break;*/
+			case "allCat":
+				parCategory();
+				break;
+			case "recherche":		
+				formrechercherarticle();	
+				break;
+			case "resultat":		
+				resultatrecherche();		
+				break;
 			default:
 				welcome();
 				break;		
