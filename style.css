@@ -11,6 +11,21 @@ body{
     margin:0 0 0 0;
     padding:0 0 0 0;
 }
+#allCategory{
+    display:inline-block;
+    padding-left:70px;
+    text-align:center;
+}
+.categorySquare{
+    position:relative;
+    width:300px;
+    height:300px;
+    float:left;
+    margin:15px;
+    border:1px;
+    border-color:black;
+    border-style:solid;
+}
 header{
     position:relative;
     top:0;
@@ -25,9 +40,11 @@ header{
     margin-left:auto;
     margin-right:auto;
 }
-#blabla{
-    
+#formarticle{
     text-align:center;
+}
+#blabla{
+    text-align:justify;
     word-wrap:break-word;
     z-index:0;
     position:relative;
@@ -35,7 +52,7 @@ header{
     width:800px;
     margin-left:auto;
     margin-right:auto;
-    background:#F1F0E5;
+    background:#C79D60;
     min-height:800px;
     height:100%;
     display:block;
@@ -52,6 +69,9 @@ header{
 }
 #profil{
     text-align:center;
+}
+#admincommande{
+    text-align:justify;
 }
 footer{
     width:100%;
@@ -79,13 +99,35 @@ table{
     left:-0px;
     z-index:1;
     position:relative;
-    top:133px;
+    top:132px;
     display:block;
     margin:0 auto;
-    width:300px;
+    width:600px;
 }
 #menuhori>ul{
-    width:300px;
+    width:600px;
+}
+#title{
+    text-align:center;
+}
+#fat{
+    font-weight:bold;
+}
+article{
+    min-height:800px;
+    margin:10px 10px 10px 10px;
+    padding:10px 10px 10px 10px;
+    border-style:solid;
+    border-color:black;
+    border-width:1px;
+    background:#EDEBD9;
+    word-wrap:break-word;
+}
+td{
+    text-align:left;
+}
+#addarticle{
+    text-align:center;
 }
 #menuhori ul{
     background:darkgreen;
@@ -98,7 +140,7 @@ table{
     border:1px;
 }
 #menuhori li{
-    width:100px;
+    width:200px;
     background:darkgreen;
     float:left;
     padding:0;
@@ -128,7 +170,7 @@ table{
     float:left;
     z-index:3;
     position:relative;
-    width:200px;
+    width:198px;
     height:500px;
     display:block;
     border-style:solid;
