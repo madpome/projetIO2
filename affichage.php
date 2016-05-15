@@ -1,5 +1,5 @@
 <?php
-//Permet l'affichage d'un article entier
+	//Permet l'affichage d'un article entier
 	function affiche_article($article_name) {
 		$server="pams.script.univ-paris-diderot.fr";
 		$user="phiear22";
@@ -15,6 +15,7 @@
 		echo '<div id="center"><span id="fat">'.htmlentities($article["title"]).' </span> écrit par <span id="fat">'.htmlentities($article["user"]).' </span>le <span id="fat">'.htmlentities($article["date"]).'</span></div><br>';
 		echo '<article>'.$article["content"].'</article>';
 	}
+	
 	//affichage des jolies cases
 	function caseCategory($category){
 		$cat=htmlentities($category["name"]);
@@ -22,6 +23,7 @@
 		<div class="categorySquare"><a href="index.php?page=perCat&cat=<?php echo $cat;?>"><img src="<?php echo $cat.".png";?>" alt="<?php echo $cat;?>"></a></div>
 <?php
 	}
+	
 	//affichage des articles par categories
 	function afficheArtCat(){
 		if(!empty($_GET["cat"])){
@@ -33,6 +35,7 @@
 		}
 	
 	}
+	
 	//Fonction qui affiche l'ensemble des categories disponibles
 	function parCategory(){
 		$server="pams.script.univ-paris-diderot.fr";
@@ -49,6 +52,7 @@
 		}
 		echo '</div>';
 	}
+	
 	//Affiche la liste d'articles qui dont données est la valeur des attributs et attr ses attributs
 	function afficherListeArticle ($données, $attr) {
 		$liste=chercher($données, $attr);
@@ -58,20 +62,20 @@
 			echo "<table>";
 			for($i=0;$i<sizeof($liste);$i++){
 ?>			
-					<form action="index.php" method="get">
+				<form action="index.php" method="get">
 					<tr>
 						<td><?php echo htmlentities($liste[$i]["title"]);?></td>
 						<td><?php echo htmlentities($liste[$i]["user"]);?></td>
 						<td>
-						<input type="hidden" name="page" value="article">
-						<input type="hidden" name="article" value="<?php echo htmlentities($liste[$i]["title"]);?>">
+							<input type="hidden" name="page" value="article">
+							<input type="hidden" name="article" value="<?php echo htmlentities($liste[$i]["title"]);?>">
 						</td>
 						<td>
-						<input type="submit" value="Lire l'article">
+							<input type="submit" value="Lire l'article">
 						</td>
 					</tr>
 <?php
-			echo "</form>";
+				echo "</form>";
 			}	
 			echo "</table>";
 		}
