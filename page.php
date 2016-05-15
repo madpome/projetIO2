@@ -82,7 +82,7 @@ Site crée par:
 				<a href="index.php?page=recherche">Recherche un article</a>
 			</li>
 			<li>
-				<a href="index.php?page=category">Les articles par catégories</a>
+				<a href="index.php?page=allCat">Les articles par catégories</a>
 			</li>
 		</ul>
 	</div>
